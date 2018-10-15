@@ -1,0 +1,32 @@
+<header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a  [routerLink]="['/']" id="logo">TalkingUi</a>
+    </h1>
+    <nav id="main-nav">
+      <a [routerLink]="['/product/window']"  class="main-nav-link">产品中心</a>
+      <a [routerLink]="['/about']"  class="main-nav-link">关于我们</a>
+      <a href="https://github.com/italking/apptalking" class="main-nav-link"><i class="fab fa-github"></i></a>
+    </nav>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+<router-outlet></router-outlet>
+<footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2018 <a href="https://github.com/italking/apptalking" target="_blank">icewaterpp</a>
+    </div>
+    <div id="footer-links">
+      <a href="https://github.com/italking/apptalking" class="footer-link" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+</footer>
+<app-tk-alert-center></app-tk-alert-center>
+<app-tk-cover></app-tk-cover>
+<app-tk-window-center></app-tk-window-center>
+<app-tk-download></app-tk-download>

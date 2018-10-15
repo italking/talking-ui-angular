@@ -1,0 +1,22 @@
+<div class="tk-window" (mousedown)="active($event)" appTkDraggable [handle]="draggHandle"  (started)="draggStart()" (endOffset)="draggEnd($event)" [hidden]="window._state ===2" [style.height]="getHeight()" [style.width]="getWidth()"  [style.left]="getLeft()" [style.top]="getTop()" [style.z-index]="getZindex()">
+  <div class="tk-window-tool-bar" #draggHandle [hidden]="!window.showHeader">
+    <div class="tk-window-tool-bar-holder" >
+      <div class="tk-window-title-container">
+        <p class="tk-window-title">{{window.title}}</p>
+      </div>
+      <div class="tk-window-tool-container">
+        <div class="tk-window-tool-close" (click)="closeWindow()"></div>
+        <div class="tk-window-tool-max" (click)="max()" [class.normal]="window._state===0" [class.alternate]="window._state===1"></div>
+        <div class="tk-window-tool-min" (click)="min()"></div>
+      </div>
+      <div class="tk-window-tool-hdr"></div>
+    </div>
+  </div>
+  <div class="tk-window-content-container" [style.visibility]="getContentVisibility()" [style.height]="getContentHeight()" [style.width]="getContentWidth()">
+    <ng-template appTkWindowContent></ng-template>
+  </div>
+  <div class="tk-window-footer" *ngIf="isShowFooter()">
+      <span class="tk-window-button tk-window-button-save" (click)="save()">{{window.saveButtonName}}</span>
+      <span class="tk-window-button tk-window-button-cancel" (click)="cancel()">{{window.cancelButtonName}}</span>
+  </div>
+</div>

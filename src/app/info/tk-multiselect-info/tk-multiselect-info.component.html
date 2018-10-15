@@ -1,0 +1,6 @@
+<div style="text-align: center">
+  <span *ngFor="let d of sdata">{{d}},</span>
+  <app-tk-multiselect [selectedData]="getSelectedData()" [data]="getData()" (change)="change($event)" >
+
+  </app-tk-multiselect>
+</div>

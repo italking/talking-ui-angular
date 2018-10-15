@@ -1,0 +1,178 @@
+
+.tk-window{
+  border	:1px #F4F4F4 solid;
+  position:fixed;
+  background:#FFFFFF;
+  overflow: hidden;
+}
+.tk-window.max{
+  position:fixed;
+}
+.tk-window.dragging{
+  opacity: 0.6;
+}
+.tk-window .tk-window-title{
+  margin-top:4px;
+  margin-left: 4px;
+}
+.tk-window .tk-window-tool-bar{
+  height: 46px;
+  cursor: move;
+
+}
+.tk-window .tk-window-tool-bar .tk-window-tool-bar-holder{
+  height:100%;
+  width:100%;
+
+  background-color: #F4F4F4;
+}
+.tk-window .tk-window-tool-container{
+  float: right;
+  padding: 2px 2px 0 0;
+}
+.tk-window .tk-window-title-container{
+  float:left;
+  height: 20px;
+  padding: 0 5px;
+  white-space: nowrap;
+  line-height: 20px;
+}
+.tk-window .tk-window-tool-close{
+  background: url("../../assets/images/window/icon-sprite.png") -38px 0  no-repeat;
+  cursor: pointer;
+  float: right;
+  height: 20px;
+  margin-left: 3px;
+  overflow: hidden;
+  width: 16px;
+}
+.tk-window .tk-window-tool-close:hover{
+  background: url("../../assets/images/window/icon-sprite.png") -110px 0  no-repeat;
+  background-color:#d74e54;
+}
+.tk-window .tk-window-tool-max{
+}
+.tk-window .tk-window-tool-max.normal{
+  background: url("../../assets/images/window/icon-sprite.png") -20px 0  no-repeat;
+  cursor: pointer;
+  float: right;
+  height: 20px;
+  margin-left: 3px;
+  overflow: hidden;
+  width: 16px;
+
+}
+.tk-window .tk-window-tool-max.normal:hover{
+  background: url("../../assets/images/window/icon-sprite.png") -92px 0  no-repeat;
+  background-color:#499df4;
+}
+.tk-window .tk-window-tool-max.alternate{
+  background: url("../../assets/images/window/icon-sprite.png") -56px 0  no-repeat;
+  cursor: pointer;
+  float: right;
+  height: 20px;
+  margin-left: 3px;
+  overflow: hidden;
+  width: 16px;
+
+}
+.tk-window .tk-window-tool-max.alternate:hover{
+  background: url("../../assets/images/window/icon-sprite.png") -128px 0  no-repeat;
+  background-color:#499df4;
+}
+.tk-window .tk-window-tool-min{
+  background: url("../../assets/images/window/icon-sprite.png") 2px 0  no-repeat;
+  cursor: pointer;
+  float: right;
+  height: 20px;
+  margin-left: 3px;
+  overflow: hidden;
+  width: 16px;
+}
+.tk-window .tk-window-tool-min:hover{
+  background: url("../../assets/images/window/icon-sprite.png") -74px  0  no-repeat;
+
+  background-color:#499df4;
+}
+.tk-window .tk-window-content-resizable-e{
+  cursor: e-resize;
+  height: 100%;
+  right: -5px;
+  top: 0;
+  width: 7px;
+  position: absolute;
+}
+.tk-window 	.tk-window-content-container{
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+}
+.tk-window 	.tk-window-content-container.scroll{
+  overflow: hidden;
+  position: relative;
+}
+
+.tk-window.dragging 	.tk-window-content{
+  visibility: hidden;
+}
+.tk-window.sizzing 	.tk-window-content{
+}
+.tk-window .tk-window-content.iframe-type{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+.tk-window-min-container p{
+  padding:0px;
+  margin:0px;
+}
+.tk-window-resize-box{
+  position: absolute;
+  background-color: #F4F4F4;
+  opacity: 0.5;
+  border:1px #000000 dashed;
+  cursor: sw-resize;
+}
+.tk-window-cover{
+  background-color: #e3e3e3;
+  bottom: 0;
+  left: 0;
+  opacity: 0.5;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.tk-window-resizable-helper{
+  border:2px #000000 dashed;
+  z-index:1300 !important;
+}
+.tk-window .tk-window-fullScreen-hander{
+  position:absolute;
+  left:0;
+  top:0px;
+  width:100%;
+  height:30px;
+}
+.tk-window .tk-window-iframe{
+  width:100%;
+  height:100%;
+}
+.tk-window .tk-window-button{
+  float: right;
+  margin-right:20px;
+  margin-top:2px;
+  background: #fff;
+  border: 1px solid #ccc;
+  width: 50px;
+  height: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  line-height: 25px;
+
+}
+.tk-window .tk-window-footer{
+  border-top:1px #F4F4F4 solid;
+}

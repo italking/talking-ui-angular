@@ -1,0 +1,30 @@
+<div class="tk-multiselect">
+
+  <div class="tk-multiselect-left">
+    <div class="tk-multiselect-search">
+      <span>搜索:</span> <input (keyup)="unSelectedSearch($event)" type="text">
+    </div>
+    <ul>
+      <li   *ngFor="let c of unSelected;let i=index " (dblclick)="select(i ,true)" [hidden]="c.selected || !c.show " >
+        <input type="checkbox"  (change)="unSelectedCheckChange($event,i);"  /> {{c.name}}
+      </li>
+    </ul>
+  </div>
+
+  <div class="tk-multiselect-mid">
+    <span class="tk-multiselect-button"  (click)="selectAll()"  > >>> </span>
+    <span class="tk-multiselect-button"  (click)="unSelectAll()"> <<< </span>
+  </div>
+
+  <div class="tk-multiselect-right">
+    <div class="tk-multiselect-search">
+      <span>搜索:</span> <input (keyup)="selectedSearch($event)"  type="text">
+    </div>
+    <ul>
+      <li  *ngFor="let c of selected;let i=index" (dblclick)="unSelect(i,c.id,true)" [hidden]="c.selected || !c.show "  >
+        <input type="checkbox"  (change)="changeSelect($event,i);"  />{{c.name}}
+      </li>
+    </ul>
+  </div>
+
+</div>

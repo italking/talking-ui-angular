@@ -1,0 +1,14 @@
+<div #simpleSlider class="slider" [ngClass]="{'vertical': vertical}" [style.width]="getWidth()" [style.height]="getHeight()" >
+    <div class="back" style="width: 4px;height: 100%;background-color: #9d9d9d;margin-left: 6px" ></div>
+    <div *ngIf="rang" class="colorline" [style.width.px]="offsetXRealFirst" ></div>
+    <div  class="colorline line-right"  [style.width.px]="offsetXRealSecond"></div>
+    <div *ngIf="rang" class="circle"
+         [style.left.px]="offsetXRealFirst"
+         (mousedown)="mousedownFirst($event)"
+         (window:mousemove)="mousemoveFirst($event)">
+    </div>
+    <div #circleSecond  class="circle"
+         (mousedown)="mousedownSecond($event)">
+
+    </div>
+</div>
