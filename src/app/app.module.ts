@@ -30,6 +30,8 @@ import { ProductCoverComponent } from './product/cover/product-cover/product-cov
 import { ProductConfirmComponent } from './product/confirm/product-confirm/product-confirm.component';
 import { HomeComponent } from './home/home.component';
 import { DemolWindowComponent } from './product/window/product-window/demol-window/demol-window.component';
+import { AnchorDirective } from '../tkui/anchor/anchor.directive';
+import { ProductAnchorComponent } from './product/anchor/product-anchor/product-anchor.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { DemolWindowComponent } from './product/window/product-window/demol-wind
     ProductConfirmComponent,
     HomeComponent,
     DemolWindowComponent,
+    AnchorDirective,
+    ProductAnchorComponent,
   ],
   entryComponents: [
       DemolWindowComponent
