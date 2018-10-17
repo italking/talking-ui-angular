@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TkAlertifyService} from '../../../../tkui/alertify/tk-alertify.service';
 
 @Component({
   selector: 'app-product-confirm',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductConfirmComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private alertifyService: TkAlertifyService
+  ) { }
 
   ngOnInit() {
   }
 
+  public confirm1() {
+    this.alertifyService.confirm('Confirm 窗口！');
+  }
+
+  public confirm2() {
+    this.alertifyService.confirm('Confirm 窗口！' , () => {
+      alert('确定');
+    },
+      () => {
+        alert('取消');
+      }
+    );
+  }
 }

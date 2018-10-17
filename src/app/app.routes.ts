@@ -16,6 +16,7 @@ import {ProductAlertComponent} from './product/alert/product-alert/product-alert
 import {ProductConfirmComponent} from './product/confirm/product-confirm/product-confirm.component';
 import {HomeComponent} from './home/home.component';
 import {ProductAnchorComponent} from './product/anchor/product-anchor/product-anchor.component';
+import {ProductHighlightComponent} from './product/highlight/product-highlight/product-highlight.component';
 export const routes: Routes = [
   {
     path: '',
@@ -55,6 +56,10 @@ export const routes: Routes = [
       {
         path: 'anchor',
         component: ProductAnchorComponent
+      },
+      {
+        path: 'highlight',
+        component: ProductHighlightComponent
       }
     ]
   },

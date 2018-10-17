@@ -15,14 +15,14 @@ export class TkDownloadComponent implements OnInit , OnDestroy {
     private tkDownloadService: TkDownloadService,
     private sanitizer: DomSanitizer,
     private elementRef: ElementRef
-  ) { }
+    ) { }
 
 
   ngOnInit() {
-    this.urlSubscription =  this.tkDownloadService.downloads.subscribe(url => {
-      // this.urls.push(url);
-      this._createIframe(url);
-    });
+     this.urlSubscription =  this.tkDownloadService.downloads.subscribe(url => {
+        // this.urls.push(url);
+        this._createIframe(url);
+      });
   }
 
   ngOnDestroy() {
@@ -35,9 +35,9 @@ export class TkDownloadComponent implements OnInit , OnDestroy {
 
   private _createIframe(src: string) {
     const ifrm = document.createElement('iframe');
-    ifrm.setAttribute('src', src);
-    ifrm.style.display = 'none';
-    this.elementRef.nativeElement.appendChild(ifrm);
+           ifrm.setAttribute('src', src);
+           ifrm.style.display = 'none';
+           this.elementRef.nativeElement.appendChild(ifrm);
   }
 
 

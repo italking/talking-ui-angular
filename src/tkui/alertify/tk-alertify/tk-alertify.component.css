@@ -1,0 +1,147 @@
+/* overwrite display: none; for everything except IE6-8 */
+:root *> .tk-alert-hidden {
+  display: block;
+  visibility: hidden;
+}
+.tk-alert-inner {
+  text-align: center;
+}
+.tk-alert-text {
+  margin-bottom: 15px;
+  width: 100%;
+  font-size: 100%;
+}
+.tk-alert-button,
+.tk-alert-button:hover,
+.tk-alert-button:active,
+.tk-alert-button:visited {
+  background: none;
+  text-decoration: none;
+  border: none;
+  /* line-height and font-size for input button */
+  line-height: 1.5;
+  font-size: 100%;
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+@media only screen and (max-width: 680px) {
+  .tk-alert,
+  .tk-alert-logs {
+    width: 90%;
+  }
+  .tk-alert {
+    left: 5%;
+    margin: 0;
+  }
+}
+
+
+/**
+ * Twitter Bootstrap Look and Feel
+ * Based on http://twitter.github.com/bootstrap/
+ */
+.tk-alert,
+.tk-alert-log {
+  font-family: sans-serif;
+}
+.tk-alert {
+  background: #FFF;
+  border: 1px solid #8E8E8E; /* browsers that don't support rgba */
+  border: 1px solid rgba(0,0,0,.3);
+  border-radius: 6px;
+  box-shadow: 0 3px 7px rgba(0,0,0,.3);
+}
+.tk-alert-dialog {
+  padding: 0;
+}
+.tk-alert-inner {
+  text-align: left;
+}
+.tk-alert-message {
+  padding: 15px;
+  margin: 0;
+}
+.tk-alert-text-wrapper {
+  padding: 0 15px;
+  text-align: center;
+}
+.tk-alert-text {
+  color: #555;
+  border-radius: 4px;
+  padding: 8px;
+  background-color: #FFF;
+  border: 1px solid #CCC;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  width:96%;
+}
+.tk-alert-text:focus {
+  border-color: rgba(82,168,236,.8);
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+}
+
+.tk-alert-buttons {
+  padding: 14px 15px 15px;
+  background: #F5F5F5;
+  border-top: 1px solid #DDD;
+  /*border-radius: 0 0 6px 6px;*/
+  /*box-shadow: inset 0 1px 0 #FFF;*/
+  text-align: right;
+}
+.tk-alert-button,
+.tk-alert-button:hover,
+.tk-alert-button:focus,
+.tk-alert-button:active {
+  margin-left: 10px;
+  /*border-radius: 4px;*/
+  font-weight: normal;
+  padding: 4px 12px;
+  text-decoration: none;
+  /*box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2), 0 1px 2px rgba(0, 0, 0, .05);*/
+
+}
+.tk-alert-button:focus {
+  outline: none;
+  /*box-shadow: 0 0 5px #2B72D5;*/
+}
+.tk-alert-button:active {
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+}
+.tk-alert-button-cancel,
+.tk-alert-button-cancel:hover,
+.tk-alert-button-cancel:focus,
+.tk-alert-button-cancel:active {
+  text-shadow: 0 -1px 0 rgba(255,255,255,.75);
+  background-color: #E6E6E6;
+  border: 1px solid #BBB;
+  color: #333;
+
+}
+.tk-alert-button-cancel:hover,
+.tk-alert-button-cancel:focus,
+.tk-alert-button-cancel:active {
+  background: #E6E6E6;
+}
+.tk-alert-button-ok,
+.tk-alert-button-ok:hover,
+.tk-alert-button-ok:focus,
+.tk-alert-button-ok:active {
+  /*text-shadow: 0 -1px 0 rgba(0,0,0,.25);*/
+  background-color: #3598db;
+  border: 1px solid #04C;
+  border-color: #04C #04C #002A80;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  color: #FFF;
+}
+.tk-alert-button-ok:hover
+  /*
+          .tk-alert-button-ok:focus,
+          .tk-alert-button-ok:active
+          */
+{
+  background: #017dc5;
+}
+

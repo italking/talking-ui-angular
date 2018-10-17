@@ -16,7 +16,6 @@ export class TkAlertCenterService {
   }
 
   public alert(anAlert: Alert) {
-    console.log('sending alert: ' + JSON.stringify(anAlert));
     this._alerts.next(anAlert);
   }
 

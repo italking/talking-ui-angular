@@ -46,7 +46,7 @@ export type ANIMATION_TYPE = 'none' | 'decent'| 'fancy';
 export class TkAlertCenterComponent implements OnInit, OnDestroy {
   @Input() animation: ANIMATION_TYPE = 'fancy';
   @Input() htmlTextEnabled = false;
-  @HostBinding('style.z-index') hzindex = 'auto';
+  @HostBinding('style.z-index') hzindex = '9999';
 
   private alerts: Alert[] = [];
   private alertSubscription: Subscription;

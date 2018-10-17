@@ -5,6 +5,7 @@ import {AfterViewInit, Directive, ElementRef, Renderer2} from '@angular/core';
 })
 export class TkDropdownMenuDirective implements  AfterViewInit {
 
+  private hideTimeout = null;
   private button:   any;
   private dropdown: any;
   constructor(
@@ -15,10 +16,24 @@ export class TkDropdownMenuDirective implements  AfterViewInit {
   ngAfterViewInit() {
     this.button    = this.elementRef.nativeElement.querySelectorAll('[menu]')[0];
     this.renderer.listen(this.button, 'click', (event: any) => {
+      event.stopPropagation();
       this._show();
+      return false;
+    });
+    this.renderer.listen(this.button, 'mouseleave', (event: any) => {
+       this.hideTimeout = setTimeout(() => {
+         this._hide();
+       } , 300);
     });
     this.dropdown  = this.elementRef.nativeElement.querySelectorAll('[dropdown]')[0];
-    this.renderer.listen(this.elementRef.nativeElement, 'mouseout', (event: any) => {
+    this.renderer.listen(this.dropdown, 'mouseover', (event: any) => {
+      this._clearTimeout();
+      event.stopPropagation();
+      this._show();
+    });
+    this.renderer.listen(this.dropdown, 'mouseleave', (event: any) => {
+      this._clearTimeout();
+      event.stopPropagation();
       this._hide();
     });
   }
@@ -26,6 +41,12 @@ export class TkDropdownMenuDirective implements  AfterViewInit {
     this.renderer.setStyle(this.dropdown, 'display', 'block');
   }
   private _hide() {
-    this.renderer.setStyle(this.dropdown, 'display', 'node');
+    this.renderer.setStyle(this.dropdown, 'display', 'none');
+  }
+  private _clearTimeout() {
+    if (this.hideTimeout) {
+      clearTimeout(this.hideTimeout);
+      this.hideTimeout = null;
+    }
   }
 }

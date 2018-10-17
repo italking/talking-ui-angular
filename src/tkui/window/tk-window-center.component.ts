@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef, Renderer2, HostBinding} from '@angular/core';
+import {Component, OnInit, ElementRef, Renderer2, HostBinding, OnDestroy} from '@angular/core';
 import {TkWindow} from './tk-window';
 import {Subscription} from 'rxjs/Subscription';
 import {TkWindowService} from './tk-window.service';
@@ -9,7 +9,7 @@ import {TkCoverService} from '../cover/tk-cover.service';
   templateUrl: './tk-window-center.component.html',
   styleUrls: ['./tk-window-center.component.css']
 })
-export class TkWindowCenterComponent implements OnInit {
+export class TkWindowCenterComponent implements OnInit , OnDestroy {
 
   @HostBinding('style.z-index') zindex = 'auto';
   private wins: TkWindow[]   = [];
@@ -23,13 +23,14 @@ export class TkWindowCenterComponent implements OnInit {
    * @type {any[]}
    */
   private minWins: TkWindow[] = [];
-  private windowSubscription: Subscription;
-  constructor(private windowServiceService: TkWindowService ,
+  private openSubscription: Subscription;
+  private closeSubscription: Subscription
+  constructor(private windowService: TkWindowService ,
                 private element: ElementRef, private renderer: Renderer2 , private tkCoverService: TkCoverService) {
   }
 
   ngOnInit() {
-      this.windowSubscription = this.windowServiceService.windows.subscribe((window: TkWindow) => {
+      this.openSubscription = this.windowService.windows.subscribe((window: TkWindow) => {
         if (window.autoCenter) {
              window._restLeft()
                     ._restTop();
@@ -46,9 +47,21 @@ export class TkWindowCenterComponent implements OnInit {
         if (win != null ) {
             win.active = false;
         }
-
        this.wins.unshift(window);
     });
+      this.closeSubscription = this.windowService.closeWindows.subscribe( (win: TkWindow) => {
+          this.removeWindow(win);
+      });
+  }
+  ngOnDestroy() {
+    if (this.openSubscription) {
+        this.openSubscription.unsubscribe();
+        this.openSubscription = null;
+    }
+    if (this.closeSubscription) {
+        this.closeSubscription.unsubscribe();
+        this.closeSubscription = null;
+    }
   }
 
   getWindows(): TkWindow[] {
@@ -63,6 +76,10 @@ export class TkWindowCenterComponent implements OnInit {
    * @param win
    */
   public removeWindow(win) {
+     // 删除window动态加载的组件的应用
+    if (win['_loadedComponent_']) {
+        win['_loadedComponent_'] = null;
+    }
     if (this.wins.indexOf(win) >= 0) {
          this.wins.splice(this.wins.indexOf(win), 1);
     }
@@ -125,7 +142,6 @@ export class TkWindowCenterComponent implements OnInit {
         awin.zindex = win.zindex;
         win.zindex = index;
         win.active = true ;
-        console.log(win.zindex);
     } else {
       win.active = true;
     }

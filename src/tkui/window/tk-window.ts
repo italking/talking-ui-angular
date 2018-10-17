@@ -1,3 +1,10 @@
+/**
+ * TkWindow
+ * Licensed  Apache Licence 2.0
+ * Version : 1.0.0
+ * Author JiGang 2018-10-17
+ *
+ */
 import {Type} from '@angular/core';
 
 export class TkWindow {
@@ -20,6 +27,8 @@ export class TkWindow {
   public onSave: Function;
   public onCancel: Function;
   public autoCenter = true;
+  public onClick;
+  public onDocumentClick;
   /**
    * 是否重新执行 ngOnInit 方法
    * @type {boolean}
@@ -128,4 +137,31 @@ export class TkWindow {
     return this;
   }
 
+  public setOnClick(onClick) {
+    this.onClick = onClick;
+    return this;
+  }
+
+  public setOnDocumentClick(onDocumentClick) {
+    this.onDocumentClick = onDocumentClick;
+    return this;
+  }
+
+  /**
+   * 调用组件的方法
+   */
+  public call(methodName: string , ...params) {
+    if (this['_loadedComponent_'] && this['_loadedComponent_'][methodName]) {
+      return this['_loadedComponent_'][methodName].apply(this['_loadedComponent_'], params);
+    }
+  }
+
+  /**
+   * 获取组件的属性
+   */
+  public get(name: string) {
+    if (this['_loadedComponent_'] && this['_loadedComponent_'][name]) {
+      return this['_loadedComponent_'][name];
+    }
+  }
 }

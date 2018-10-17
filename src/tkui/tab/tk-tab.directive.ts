@@ -48,7 +48,7 @@ export class TkTabDirective implements   OnInit , AfterViewInit {
     let content = null; // this.elementRef.nativeElement.querySelector('[tabContent="' + name + '"]');
     this.queryAllContents().forEach( con => {
       if (con.getAttribute('tabContent') === name ) {
-        content = con;
+          content = con;
       }
     });
 
@@ -68,16 +68,16 @@ export class TkTabDirective implements   OnInit , AfterViewInit {
   }
 
   private queryAllHeaders(): any[] {
-    let headers  = [];
-    this.elementRef.nativeElement.querySelectorAll('[tabHeader]').forEach( header => {
-      headers.push(header);
-    });
-    const eheaders = [];
-    this.elementRef.nativeElement.querySelectorAll('[appTkTab]').forEach(tab => {
+   let headers  = [];
+   this.elementRef.nativeElement.querySelectorAll('[tabHeader]').forEach( header => {
+       headers.push(header);
+   });
+   const eheaders = [];
+   this.elementRef.nativeElement.querySelectorAll('[appTkTab]').forEach(tab => {
       tab.querySelectorAll('[tabHeader]').forEach(header => {
         eheaders.push(header);
       });
-    });
+   });
 
     headers = headers.filter(header => {
       if (eheaders.indexOf(header) >= 0 ) {
@@ -86,7 +86,7 @@ export class TkTabDirective implements   OnInit , AfterViewInit {
         return true;
       }
     });
-    return headers;
+   return headers;
   }
 
   private queryAllContents(): any[] {

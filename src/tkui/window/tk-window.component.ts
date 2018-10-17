@@ -1,8 +1,8 @@
-import { Component, Input, OnInit , Output, ViewChild, ComponentFactoryResolver, OnDestroy , EventEmitter , AfterViewInit } from '@angular/core';
-import { Type } from '@angular/core';
+import {
+  Component, Input, OnInit, Output, ViewChild,
+  ComponentFactoryResolver, OnDestroy, EventEmitter, AfterViewInit, HostListener
+} from '@angular/core';
 import {TkWindowContentDirective} from './tk-window-content.directive';
-import {TkWindowService} from './tk-window.service';
-import {Subscription} from 'rxjs/Subscription';
 import {TkWindow} from './tk-window';
 import {TkCoverService} from '../cover/tk-cover.service';
 
@@ -18,6 +18,7 @@ export class TkWindowComponent implements OnInit, OnDestroy , AfterViewInit {
   @Output() minWindow     = new EventEmitter();
   @Output() activeWindow  = new EventEmitter();
   @ViewChild(TkWindowContentDirective) content: TkWindowContentDirective;
+
   constructor(private componentFactoryResolver: ComponentFactoryResolver , private tkCoverService: TkCoverService ) {
 
   }
@@ -34,19 +35,36 @@ export class TkWindowComponent implements OnInit, OnDestroy , AfterViewInit {
   private oldHeight;
   private oldWithd;
   private componentRef;
-
+  @HostListener('document:click', ['$event'])
+  public onDocumentClick(btn: Event) {
+    if (this.window && this.window.onDocumentClick) {
+        this.window.onDocumentClick.call(null , btn);
+    }
+  }
+  @HostListener('click', ['$event'])
+  public onClick(btn: Event) {
+    if (this.window && this.window.onClick) {
+        this.window.onClick.call(null , btn);
+    }
+  }
   ngOnInit() {
-    this.loadComponent();
+    // this.loadComponent();
   }
   ngOnDestroy() {
   }
   ngAfterViewInit() {
-
+    this.loadComponent();
   }
   public getWidth() {
+    if (this.window.width < 0) {
+        return 'auto';
+    }
     return this.window.width + 'px';
   }
   public getHeight() {
+    if (this.window.height < 0) {
+      return 'auto';
+    }
     return this.window.height + 'px';
   }
 
@@ -58,9 +76,15 @@ export class TkWindowComponent implements OnInit, OnDestroy , AfterViewInit {
   }
 
   public getContentWidth() {
+    if (this.window.width < 0) {
+        return 'auto';
+    }
     return this.window.width - 6 + 'px';
   }
   public getContentHeight() {
+      if (this.window.height < 0) {
+        return 'auto';
+      }
       if (this.isShowFooter()) {
         return  this.window.height - (this.window.showHeader ? this.toolBarHeight : 0) - this.footerHeight + 'px';
       } else {
@@ -118,10 +142,6 @@ export class TkWindowComponent implements OnInit, OnDestroy , AfterViewInit {
           this.componentRef.instance.ngOnInit();
         } , 1);
      }
-
-
-
-
     /**
      * 传入隐藏的函数，用于关闭window,
      * 不建议使用  默认save cancel 都会直接关闭window
@@ -129,6 +149,15 @@ export class TkWindowComponent implements OnInit, OnDestroy , AfterViewInit {
     this.componentRef.instance['removeWindow'] = () => {
        this.remove();
     };
+    this.componentRef.instance['saveWindow'] = () => {
+      this.save();
+    };
+    this.componentRef.instance['cancelWindow'] = () => {
+      this.cancel();
+    };
+    // 设置关联的组件，销毁的时候必须删除掉，防止内存溢出
+    this.window['_loadedComponent_'] = this.componentRef.instance;
+
   }
 
   public remove() {
@@ -205,7 +234,10 @@ export class TkWindowComponent implements OnInit, OnDestroy , AfterViewInit {
   }
 
   public cancel() {
-    if (this.window.popinfo) {
+    /**
+     * 只有在设置回调函数，需要参数的时候才 设置 popinfo
+     */
+    if (this.window.popinfo && this.window.onCancel ) {
         this._fetchPopinfo(this.window.popinfo, this.componentRef.instance );
     }
 

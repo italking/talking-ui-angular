@@ -30,8 +30,9 @@ import { ProductCoverComponent } from './product/cover/product-cover/product-cov
 import { ProductConfirmComponent } from './product/confirm/product-confirm/product-confirm.component';
 import { HomeComponent } from './home/home.component';
 import { DemolWindowComponent } from './product/window/product-window/demol-window/demol-window.component';
-import { AnchorDirective } from '../tkui/anchor/anchor.directive';
 import { ProductAnchorComponent } from './product/anchor/product-anchor/product-anchor.component';
+import { ProductHighlightComponent } from './product/highlight/product-highlight/product-highlight.component';
+import { TkHighlightComponent } from '../tkui/highlight/tk-highlight/tk-highlight.component';
 
 @NgModule({
   declarations: [
@@ -58,8 +59,9 @@ import { ProductAnchorComponent } from './product/anchor/product-anchor/product-
     ProductConfirmComponent,
     HomeComponent,
     DemolWindowComponent,
-    AnchorDirective,
     ProductAnchorComponent,
+    ProductHighlightComponent,
+    TkHighlightComponent,
   ],
   entryComponents: [
       DemolWindowComponent

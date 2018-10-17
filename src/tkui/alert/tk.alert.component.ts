@@ -1,3 +1,10 @@
+/**
+ * TkAlertComponent
+ * Licensed  Apache Licence 2.0
+ * Version : 1.0.0
+ * Author JiGang 2018-10-17
+ *
+ */
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Alert} from './tk.alert';
 import {AlertType} from './tk.alert-type';

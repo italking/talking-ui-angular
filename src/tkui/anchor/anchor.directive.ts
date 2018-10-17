@@ -12,10 +12,10 @@ export class AnchorDirective  implements OnInit {
 
   public ngOnInit() {
     let id   = this.elementRef.nativeElement.getAttribute('href');
-           id = id.substr(1, id.length);
+    id = id.substr(1, id.length);
     this.renderer.listen(this.elementRef.nativeElement , 'click' ,  (event) => {
-         document.getElementById(id).scrollIntoView(true);
-         return false;
+      document.getElementById(id).scrollIntoView(true);
+      return false;
     });
   }
 

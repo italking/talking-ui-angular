@@ -22,6 +22,12 @@ import {TkDownloadService} from './download/tk-download.service';
 import {TkDownloadComponent} from './download/tk-download.component';
 import {TkDropdownMenuDirective} from './dropdown-menu/tk-dropdown-menu.directive';
 import {TkChartComponent} from './chart/tk-chart.component';
+import {TkAlertifyComponent} from './alertify/tk-alertify/tk-alertify.component';
+import {TkConfirmComponent} from './alertify/tk-confirm/tk-confirm.component';
+import {TkAlertifyService} from './alertify/tk-alertify.service';
+import {AnchorDirective} from './anchor/anchor.directive';
+import {TkHighlightDirective} from './highlight/tk-highlight.directive';
+import {RightMenuDirective} from './window/right-menu.directive';
 
 @NgModule({
   declarations: [
@@ -37,9 +43,17 @@ import {TkChartComponent} from './chart/tk-chart.component';
     TkSliderComponent,
     TkDownloadComponent,
     TkDropdownMenuDirective,
-    TkChartComponent
+    TkChartComponent,
+    TkAlertifyComponent,
+    TkConfirmComponent,
+    AnchorDirective,
+    TkHighlightDirective,
+    RightMenuDirective
   ],
-  entryComponents: [],
+  entryComponents: [
+    TkAlertifyComponent,
+    TkConfirmComponent
+  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -51,7 +65,8 @@ import {TkChartComponent} from './chart/tk-chart.component';
     TkAlertCenterService,
     TkWindowService,
     TkCoverService,
-    TkDownloadService
+    TkDownloadService,
+    TkAlertifyService
   ],
   bootstrap: [
   ],
@@ -67,7 +82,13 @@ import {TkChartComponent} from './chart/tk-chart.component';
     TkSliderComponent,
     TkDownloadComponent,
     TkDropdownMenuDirective,
-    TkChartComponent
+    TkChartComponent,
+    TkAlertifyComponent,
+    TkAlertifyComponent,
+    TkConfirmComponent,
+    AnchorDirective,
+    TkHighlightDirective,
+    RightMenuDirective,
   ]
 })
 export class TkuiModule { }
