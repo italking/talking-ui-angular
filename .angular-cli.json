@@ -11,7 +11,8 @@
         "assets",
         "favicon.ico",
         "CNAME",
-        "google2d7bcbc923b77cd7.html"
+        "google2d7bcbc923b77cd7.html",
+        "404.html"
       ],
       "index": "index.html",
       "main": "main.ts",
