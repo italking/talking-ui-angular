@@ -33,6 +33,7 @@ import { DemolWindowComponent } from './product/window/product-window/demol-wind
 import { ProductAnchorComponent } from './product/anchor/product-anchor/product-anchor.component';
 import { ProductHighlightComponent } from './product/highlight/product-highlight/product-highlight.component';
 import { TkHighlightComponent } from '../tkui/highlight/tk-highlight/tk-highlight.component';
+import { SimpleRightMenuComponent } from './product/right-menu/product-right-menu/simple-right-menu/simple-right-menu.component';
 
 @NgModule({
   declarations: [
@@ -62,9 +63,11 @@ import { TkHighlightComponent } from '../tkui/highlight/tk-highlight/tk-highligh
     ProductAnchorComponent,
     ProductHighlightComponent,
     TkHighlightComponent,
+    SimpleRightMenuComponent,
   ],
   entryComponents: [
-      DemolWindowComponent
+      DemolWindowComponent,
+      SimpleRightMenuComponent
     ],
   imports: [
     BrowserModule,

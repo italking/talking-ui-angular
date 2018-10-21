@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {TkWindowService} from './tk-window.service';
-import {TkWindow} from './tk-window';
+import {TkWindowService} from '../window/tk-window.service';
+import {TkWindow} from '../window/tk-window';
 
 @Injectable()
-export class RightMenuService {
+export class TkRightMenuService {
   constructor(
     private windowService: TkWindowService
   ) { }

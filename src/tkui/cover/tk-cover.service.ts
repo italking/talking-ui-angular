@@ -26,7 +26,10 @@ export class TkCoverService {
   /**
    * @param {number} no 指定cover的编号
    */
-  public hide(no: number) {
+  public hide(no?: number) {
+    if (arguments.length === 0) {
+        no = this.covers.length - 1;
+    }
     if (this.covers.length >= no && this.covers[no] ) {
         delete  this.covers[no];
     }

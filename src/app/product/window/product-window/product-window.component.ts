@@ -21,12 +21,18 @@ export class ProductWindowComponent implements OnInit {
     const win = new TkWindow()
           .setHeight(300)
           .setWidth(600)
+          .setTitle('简单窗口')
           .setContentComponent(DemolWindowComponent);
     this.windowService.open(win);
   }
-
-  public toTag(id) {
-    document.getElementById(id).scrollIntoView();
-    return false;
+  public open2() {
+    const win = new TkWindow()
+      .setHeight(300)
+      .setWidth(600)
+      .setTitle('模式化窗口')
+      .setModel(true)
+      .setContentComponent(DemolWindowComponent);
+    this.windowService.open(win);
   }
+
 }

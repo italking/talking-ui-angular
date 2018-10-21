@@ -25,12 +25,38 @@
           <p>
             <input type="button" value="点击弹出窗口" (click)="open1()"><br>
           </p>
-          <pre>
-            const win = new TkWindow()
-            .setHeight(300)
-            .setWidth(600)
-            .setContentComponent(DemolWindowComponent);
-             this.windowService.open(win);
+          <pre class="sm">
+            <code appTkHighlight class="typescript">
+              <textarea>
+                 const win = new TkWindow()
+                        .setHeight(300)
+                        .setWidth(600)
+                        .setTitle('简单窗口')
+                        .setContentComponent(DemolWindowComponent);
+                  this.windowService.open(win);
+              </textarea>
+            </code>
+          </pre>
+          <h3 id="模式化窗口" class="article-heading">
+            <a href="#模式化窗口" class="headerlink" title="模式化窗口"></a>
+            模式化窗口
+            <a class="article-anchor" href="#模式化窗口" aria-hidden="true"></a>
+          </h3>
+          <p>
+            <input type="button" value="点击弹出模式化窗口" (click)="open2()"><br>
+          </p>
+          <pre class="sm">
+            <code appTkHighlight class="typescript">
+              <textarea>
+                const win = new TkWindow()
+                      .setHeight(300)
+                      .setWidth(600)
+                      .setTitle('模式化窗口')
+                      .setModel(true)
+                      .setContentComponent(DemolWindowComponent);
+                    this.windowService.open(win);
+              </textarea>
+            </code>
           </pre>
         </div>
       </div>
@@ -40,16 +66,17 @@
         <strong class="sidebar-title">目录</strong>
         <ol class="toc">
           <li class="toc-item toc-level-2">
-            <a class="toc-link" href="#组件介绍" (click)="toTag('组件介绍')"><span class="toc-text">组件介绍</span></a>
+            <a class="toc-link" href="#组件介绍" appTkAnchor><span class="toc-text">组件介绍</span></a>
           </li>
           <li class="toc-item toc-level-2">
-            <a class="toc-link" href="#组件示例"><span class="toc-text">组件示例</span></a>
+            <a class="toc-link" href="#组件示例" appTkAnchor><span class="toc-text">组件示例</span></a>
             <ol class="toc-child">
-              <li class="toc-item toc-level-3"><a class="toc-link" href="#简单窗口"><span class="toc-text">简单窗口</span></a></li>
+              <li class="toc-item toc-level-3"><a class="toc-link" href="#简单窗口" appTkAnchor><span class="toc-text">简单窗口</span></a></li>
+              <li class="toc-item toc-level-3"><a class="toc-link" href="#模式化窗口" appTkAnchor><span class="toc-text">模式化窗口</span></a></li>
             </ol>
           </li>
         </ol>
-        <a href="#" id="article-toc-top">回到顶部</a>
+        <a href="#" id="article-toc-top" appTkAnchor>回到顶部</a>
       </div>
     </aside>
   </div>

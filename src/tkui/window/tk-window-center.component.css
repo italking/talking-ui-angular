@@ -4,6 +4,7 @@
   left: 0;
   position: fixed;
   width: 100%;
+  z-index: 9999;
 }
 .tk-window-min-container .tk-window-min-bar{
   background-color: #F4F4F4;
@@ -19,6 +20,7 @@
   line-height: 1.5em;
   padding: 0 5px;
   white-space: nowrap;
+  min-width: 160px;
 }
 .tk-window-min-container .tk-window-min-title{
   line-height: 1.5em;
@@ -31,7 +33,7 @@
 
 
 .tk-window-min-container .tk-window-min-tool-close{
-  background: url("../../assets/images/window/icon-sprite.png") 32px 0 repeat no-repeat;
+  background: url("../../assets/images/window/icon-sprite.png") -38px 0  no-repeat;
   cursor: pointer;
   float: right;
   height: 20px;
@@ -39,21 +41,7 @@
   overflow: hidden;
   width: 16px;
 }
-.tk-window-min-container .tk-window-min-tool-max{
-  background: url("../../assets/images/window/icon-sprite.png") 48px 0 repeat no-repeat;
-  cursor: pointer;
-  float: right;
-  height: 20px;
-  margin-left: 3px;
-  overflow: hidden;
-  width: 16px;
-}
-.tk-window-min-container .tk-window-min-tool-min{
-  background: url("../../assets/images/window/icon-sprite.png") 64px 0 repeat no-repeat;
-  cursor: pointer;
-  float: right;
-  height: 20px;
-  margin-left: 3px;
-  overflow: hidden;
-  width: 16px;
+.tk-window-min-container .tk-window-min-tool-close:hover{
+  background: url("../../assets/images/window/icon-sprite.png") -110px 0  no-repeat;
+  background-color:#d74e54;
 }

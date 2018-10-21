@@ -1,11 +1,10 @@
 import {Directive, EventEmitter, HostListener, Input, Output} from '@angular/core';
-import {TkWindowService} from './tk-window.service';
-import {RightMenuService, TkMenu} from './right-menu.service';
+import {TkMenu, TkRightMenuService} from './tk-right-menu.service';
 
 @Directive({
-  selector: '[appRightMenu]'
+  selector: '[appTkRightMenu]'
 })
-export class RightMenuDirective {
+export class TkRightMenuDirective {
 
   @Input('component')
   public component;
@@ -15,7 +14,7 @@ export class RightMenuDirective {
   public menuClick = new EventEmitter<string>();
 
   constructor(
-    private rightMenuService: RightMenuService
+    private rightMenuService: TkRightMenuService
   ) { }
   @HostListener('mouseup', ['$event'])
   public onClick(event) {

@@ -27,7 +27,8 @@ import {TkConfirmComponent} from './alertify/tk-confirm/tk-confirm.component';
 import {TkAlertifyService} from './alertify/tk-alertify.service';
 import {AnchorDirective} from './anchor/anchor.directive';
 import {TkHighlightDirective} from './highlight/tk-highlight.directive';
-import {RightMenuDirective} from './window/right-menu.directive';
+import {TkRightMenuDirective} from './right-menu/tk-right-menu.directive';
+import {TkRightMenuService} from './right-menu/tk-right-menu.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import {RightMenuDirective} from './window/right-menu.directive';
     TkConfirmComponent,
     AnchorDirective,
     TkHighlightDirective,
-    RightMenuDirective
+    TkRightMenuDirective
   ],
   entryComponents: [
     TkAlertifyComponent,
@@ -66,7 +67,8 @@ import {RightMenuDirective} from './window/right-menu.directive';
     TkWindowService,
     TkCoverService,
     TkDownloadService,
-    TkAlertifyService
+    TkAlertifyService,
+    TkRightMenuService
   ],
   bootstrap: [
   ],
@@ -88,7 +90,7 @@ import {RightMenuDirective} from './window/right-menu.directive';
     TkConfirmComponent,
     AnchorDirective,
     TkHighlightDirective,
-    RightMenuDirective,
+    TkRightMenuDirective,
   ]
 })
 export class TkuiModule { }

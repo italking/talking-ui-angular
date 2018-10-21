@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { RightMenuService } from './right-menu.service';
+import { TkRightMenuService } from './tk-right-menu.service';
 
 describe('RightMenuService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [RightMenuService]
+      providers: [TkRightMenuService]
     });
   });
 
-  it('should be created', inject([RightMenuService], (service: RightMenuService) => {
+  it('should be created', inject([TkRightMenuService], (service: TkRightMenuService) => {
     expect(service).toBeTruthy();
   }));
 });

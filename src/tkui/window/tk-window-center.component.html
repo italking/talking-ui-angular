@@ -4,7 +4,7 @@
 <div  class="tk-window-min-container" >
   <div class="tk-window-min-bar" *ngFor="let win of getMinWindows()">
     <div class="tk-window-min-title-container" (click)="resetWindow(win)" >
-      <p class="tk-window-min-title">{{win.title}}</p>
+      <p class="tk-window-min-title"> {{ win.title ? win.title : '窗口' }}</p>
     </div>
     <div class="tk-window-min-tool-container">
       <div class="tk-window-min-tool-close" (click)="removeWindow(win)"></div>
