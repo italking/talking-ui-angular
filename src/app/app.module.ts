@@ -34,6 +34,8 @@ import { ProductAnchorComponent } from './product/anchor/product-anchor/product-
 import { ProductHighlightComponent } from './product/highlight/product-highlight/product-highlight.component';
 import { TkHighlightComponent } from '../tkui/highlight/tk-highlight/tk-highlight.component';
 import { SimpleRightMenuComponent } from './product/right-menu/product-right-menu/simple-right-menu/simple-right-menu.component';
+import { ProductBaseTableComponent } from './product/base-table/product-base-table.component';
+import { TkSortHeaderComponent } from '../tkui/base-table/tk-sort-header/tk-sort-header.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,8 @@ import { SimpleRightMenuComponent } from './product/right-menu/product-right-men
     ProductHighlightComponent,
     TkHighlightComponent,
     SimpleRightMenuComponent,
+    ProductBaseTableComponent,
+    TkSortHeaderComponent,
   ],
   entryComponents: [
       DemolWindowComponent,

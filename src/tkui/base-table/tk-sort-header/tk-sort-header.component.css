@@ -1,0 +1,11 @@
+.sort-arrows {
+  width: 19px;
+  height: 19px;
+  background-image: url('../../../assets/images/table/sort_asc.png');
+  cursor: pointer;
+  display: inline-block;
+}
+
+.sort-arrows.desc{
+  background-image: url('../../../assets/images/table/sort_desc.png');
+}

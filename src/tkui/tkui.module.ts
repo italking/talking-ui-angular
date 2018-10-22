@@ -29,6 +29,7 @@ import {AnchorDirective} from './anchor/anchor.directive';
 import {TkHighlightDirective} from './highlight/tk-highlight.directive';
 import {TkRightMenuDirective} from './right-menu/tk-right-menu.directive';
 import {TkRightMenuService} from './right-menu/tk-right-menu.service';
+import {TkBaseTableDirective} from './base-table/tk-base-table.directive';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {TkRightMenuService} from './right-menu/tk-right-menu.service';
     TkConfirmComponent,
     AnchorDirective,
     TkHighlightDirective,
-    TkRightMenuDirective
+    TkRightMenuDirective,
+    TkBaseTableDirective,
   ],
   entryComponents: [
     TkAlertifyComponent,
@@ -91,6 +93,7 @@ import {TkRightMenuService} from './right-menu/tk-right-menu.service';
     AnchorDirective,
     TkHighlightDirective,
     TkRightMenuDirective,
+    TkBaseTableDirective,
   ]
 })
 export class TkuiModule { }

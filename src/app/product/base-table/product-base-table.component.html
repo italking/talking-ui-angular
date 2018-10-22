@@ -11,7 +11,7 @@
             组件介绍
             <a class="article-anchor" href="#组件介绍" aria-hidden="true"></a>
           </h2>
-          <p>TalkingUI Right Menu 右键菜单组件，可以在任何的元素上生成右键菜单按钮，用户可以自定义弹出的邮件窗口。</p>
+          <p>TalkingUI Base Table 是一个简易的Table 指令，可以支持Table的排序和查询功能</p>
           <h2 id="组件示例" class="article-heading">
             <a href="#组件示例" class="headerlink" title="组件示例"></a>
             组件示例
@@ -23,50 +23,45 @@
             <a class="article-anchor" href="#简单示例" aria-hidden="true"></a>
           </h3>
           <div>
-            <p>在Table 行上执行邮件操作</p>
-            <table width="100%">
-                <thead>
-                    <tr>
-                        <th>1序号</th>
-                        <th>姓名</th>
-                        <th>城市</th>
-                    </tr>
-                </thead>
-                <tbody>
-                  <tr appTkRightMenu (menuClick)="onMenuClick($event ,i)"  [component]="SimpleRightMenuComponent" *ngFor="let d of datas;let i = index">
-                      <td>{{d.id}}</td>
-                      <td>{{d.name}}</td>
-                      <td>{{d.city}}</td>
+            <span style="float: right">
+              搜索：<input type="text" #k (keyup)="key = k.value" style="border: 1px solid #eee;" >
+            </span>
+            <table width="100%" appTkBaseTable [collection]="datas" [searchPaths]="['name','city']" [keyword]="key">
+              <thead>
+              <tr>
+                <th appTkSortHeader [path]="'id'">序号</th>
+                <th appTkSortHeader [path]="'name'" [default]="true" [desc]="true">姓名</th>
+                <th appTkSortHeader [path]="'city'"  >城市</th>
+              </tr>
+              </thead>
+              <tbody>
+              <ng-container  *ngFor="let d of datas;let i = index">
+                  <tr *ngIf="!d.filterd" >
+                    <td>{{d.id}}</td>
+                    <td>{{d.name}}</td>
+                    <td>{{d.city}}</td>
                   </tr>
-                </tbody>
+              </ng-container>
+              </tbody>
             </table>
           </div>
           <pre class="sm">
               <code class="javascript" appTkHighlight>
                  <textarea>
- export class ProductRightMenuComponent implements OnInit {
+ export class ProductBaseTableComponent implements OnInit {
 
-  public SimpleRightMenuComponent = SimpleRightMenuComponent;
+  public key = null;
   public datas = [
-    {id: 2 , name: '小A' , city : '北京' },
-    {id: 3 , name: '小B' , city : '上海' },
-    {id: 4 , name: '小C' , city : '广州' },
-    {id: 5 , name: '小D' , city : '深圳' }
+    {id: 1 , name: '小A' , city : '北京' },
+    {id: 2 , name: '小B' , city : '上海' },
+    {id: 3 , name: '小C' , city : '广州' },
+    {id: 4 , name: '小D' , city : '深圳' }
   ];
   constructor() { }
 
   ngOnInit() {
   }
 
-  public onMenuClick(type , index) {
-    if (type === 'view') {
-      alert('查看');
-    } else if (type === 'delete') {
-       this.datas.splice(index , 1);
-    } else if (type === 'edit') {
-      alert('修改');
-    }
-  }
 }
                  </textarea>
               </code>
@@ -90,3 +85,4 @@
     </aside>
   </div>
 </article>
+
