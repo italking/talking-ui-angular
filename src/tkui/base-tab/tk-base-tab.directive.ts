@@ -10,6 +10,10 @@ export class TkBaseTabDirective implements AfterViewInit {
   @Output('show')
   public show: EventEmitter<string> = new EventEmitter<string>();
   public current: TkBaseTabHeaderDirective;
+  @Input('tkBaseTab')
+  public set tkBaseTab(v) {
+    this.activeClass = v;
+  }
   @Input('activeClass')
   public activeClass;
   @ContentChildren(TkBaseTabHeaderDirective)  headers: QueryList<TkBaseTabHeaderDirective> ;

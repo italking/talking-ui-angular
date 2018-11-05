@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import {ChartObject} from 'highcharts';
 
 @Component({
-  selector: 'app-tk-chart',
+  selector: 'tk-chart',
   templateUrl: './tk-chart.component.html',
   styleUrls: ['./tk-chart.component.css']
 })

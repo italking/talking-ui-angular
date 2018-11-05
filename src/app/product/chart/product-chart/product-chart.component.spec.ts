@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TkChartInfoComponent } from './tk-chart-info.component';
+import { ProductChartComponent } from './product-chart.component';
 
-describe('TkChartInfoComponent', () => {
-  let component: TkChartInfoComponent;
-  let fixture: ComponentFixture<TkChartInfoComponent>;
+describe('ProductChartComponent', () => {
+  let component: ProductChartComponent;
+  let fixture: ComponentFixture<ProductChartComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TkChartInfoComponent ]
+      declarations: [ ProductChartComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TkChartInfoComponent);
+    fixture = TestBed.createComponent(ProductChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
