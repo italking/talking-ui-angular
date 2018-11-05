@@ -1,13 +1,24 @@
 import {AfterContentInit, AfterViewInit, ContentChild, ContentChildren, Directive, Input, QueryList, ViewChildren} from '@angular/core';
 import {TkSortHeaderComponent} from './tk-sort-header/tk-sort-header.component';
+import {isFunction} from 'util';
 
 @Directive({
   selector: '[appTkBaseTable]'
 })
 export class TkBaseTableDirective implements AfterViewInit {
-
-  @Input('collection')
+  public afterViewInit = false;
   public collection;
+  @Input('collection')
+  public set setCollection(collection) {
+    this.collection = collection;
+    /**
+     * 重新设置值的时候也需要重新排序
+     */
+    if (this.afterViewInit) {
+      this.active();
+      this.sort();
+    }
+  }
 
   public desc = false;
 
@@ -83,17 +94,24 @@ export class TkBaseTableDirective implements AfterViewInit {
     return this.collection;
   }
 
-  private  getValue(object: any, path: string): any {
+  private  getValue(object: any, path: any): any {
     try {
-      if (path.indexOf(path) < 0) {
-        return object;
+      /**
+       * 如果是函数
+       */
+      if (isFunction(path)) {
+        return path.call(null , object);
+      } else {
+        if (path.indexOf(path) < 0) {
+          return object;
+        }
+        const ps = path.split('.');
+        let data = object;
+        ps.forEach(p => {
+          data = data[p];
+        });
+        return data;
       }
-      const ps = path.split('.');
-      let data = object;
-      ps.forEach(p => {
-        data = data[p];
-      });
-      return data;
     } catch ( e) {
       return null;
     }
@@ -107,9 +125,9 @@ export class TkBaseTableDirective implements AfterViewInit {
     this.desc = this.current.desc;
     this.headers.forEach(h => {
       if (this.current === h) {
-          h.active = true;
+        h.active = true;
       } else {
-          h.active = false;
+        h.active = false;
       }
     });
   }
@@ -118,19 +136,22 @@ export class TkBaseTableDirective implements AfterViewInit {
       return;
     }
     this.headers.forEach( h => {
-         h['onSort'] = (path , desc) => {
-           this.current = h;
-           this.active();
-           this.sort();
-         };
-         if (h.default) {
-            this.current = h;
-         }
-    });
-    if (this.current) {
+      h['onSort'] = (path , desc) => {
+        this.current = h;
         this.active();
         this.sort();
+      };
+      if (h.default) {
+        this.current = h;
+      }
+    });
+    if (this.current) {
+      setTimeout(() => {
+        this.active();
+        this.sort();
+      } , 0);
     }
+    this.afterViewInit = true;
   }
 
 }

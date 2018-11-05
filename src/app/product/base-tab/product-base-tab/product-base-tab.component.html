@@ -3,7 +3,7 @@
     <div class="article">
       <div class="inner">
         <header class="article-header">
-          <h1 class="article-title" itemprop="name">Right Table</h1>
+          <h1 class="article-title" itemprop="name">Base Tab</h1>
         </header>
         <div class="article-content" itemprop="articleBody">
           <h2 id="组件介绍" class="article-heading">
@@ -11,7 +11,7 @@
             组件介绍
             <a class="article-anchor" href="#组件介绍" aria-hidden="true"></a>
           </h2>
-          <p>TalkingUI Base Table 是一个简易的Table 指令，可以支持Table的排序和查询功能</p>
+          <p>TalkingUI Base Tab 是一个简易的Tab 指令，可以支持Tab 内容的懒加载</p>
           <h2 id="组件示例" class="article-heading">
             <a href="#组件示例" class="headerlink" title="组件示例"></a>
             组件示例
@@ -22,50 +22,30 @@
             简单示例
             <a class="article-anchor" href="#简单示例" aria-hidden="true"></a>
           </h3>
-          <div>
-            <span style="float: right">
-              搜索：<input type="text" #k (keyup)="key = k.value" style="border: 1px solid #eee;" >
-            </span>
-            <table width="100%" appTkBaseTable [collection]="datas" [searchPaths]="['name','city']" [keyword]="key">
-              <thead>
-              <tr>
-                <th appTkSortHeader [path]="'id'">序号</th>
-                <th appTkSortHeader [path]="'name'" [default]="true" [desc]="true">姓名</th>
-                <th appTkSortHeader [path]="'city'"  >城市</th>
-              </tr>
-              </thead>
-              <tbody>
-              <ng-container  *ngFor="let d of datas;let i = index">
-                  <tr *ngIf="!d.filterd" >
-                    <td>{{d.id}}</td>
-                    <td>{{d.name}}</td>
-                    <td>{{d.city}}</td>
-                  </tr>
-              </ng-container>
-              </tbody>
-            </table>
+          <div tkBaseTab [activeClass]="'active'">
+              <ul  class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" [tkBaseTabHeader]="'TAB1'">TAB1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" [tkBaseTabHeader]="'TAB2'">TAB2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" [tkBaseTabHeader]="'TAB3'">TAB3</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane" *tkBaseTabContent="'TAB1'">
+                  TAB1
+                </div>
+                <div class="tab-pane" *tkBaseTabContent="'TAB2'">
+                  TAB2
+                </div>
+                <div class="tab-pane" *tkBaseTabContent="'TAB3'">
+                  TAB3
+                </div>
+              </div>
           </div>
-          <pre class="sm">
-              <code class="javascript" appTkHighlight>
-                 <textarea>
- export class ProductBaseTableComponent implements OnInit {
-
-  public key = null;
-  public datas = [
-    {id: 1 , name: '小A' , city : '北京' },
-    {id: 2 , name: '小B' , city : '上海' },
-    {id: 3 , name: '小C' , city : '广州' },
-    {id: 4 , name: '小D' , city : '深圳' }
-  ];
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
-                 </textarea>
-              </code>
-          </pre>
         </div>
       </div>
     </div>

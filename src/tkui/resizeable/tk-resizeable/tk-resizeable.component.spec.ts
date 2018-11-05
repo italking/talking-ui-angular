@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TkHighlightComponent } from './tk-highlight.component';
+import { TkResizeableComponent } from './tk-resizeable.component';
 
-describe('TkHighlightComponent', () => {
-  let component: TkHighlightComponent;
-  let fixture: ComponentFixture<TkHighlightComponent>;
+describe('TkResizeableComponent', () => {
+  let component: TkResizeableComponent;
+  let fixture: ComponentFixture<TkResizeableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TkHighlightComponent ]
+      declarations: [ TkResizeableComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TkHighlightComponent);
+    fixture = TestBed.createComponent(TkResizeableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

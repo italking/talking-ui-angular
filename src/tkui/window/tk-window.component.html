@@ -1,4 +1,4 @@
-<div class="tk-window" (mousedown)="active($event)" appTkDraggable [handle]="draggHandle"  (started)="draggStart()" (endOffset)="draggEnd($event)" [hidden]="window._state ===2" [style.height]="getHeight()" [style.width]="getWidth()"  [style.left]="getLeft()" [style.top]="getTop()" [style.z-index]="getZindex()">
+<div class="tk-window" appTkResizeable (resizeEnd)="onResizeEnd($event)"  (mousedown)="active($event)" appTkDraggable [handle]="draggHandle"  (started)="draggStart()" (endOffset)="draggEnd($event)" [hidden]="window._state ===2" [style.height]="getHeight()" [style.width]="getWidth()"  [style.left]="getLeft()" [style.top]="getTop()" [style.z-index]="getZindex()">
   <div class="tk-window-tool-bar" #draggHandle [hidden]="!window.showHeader">
     <div class="tk-window-tool-bar-holder" >
       <div class="tk-window-title-container">

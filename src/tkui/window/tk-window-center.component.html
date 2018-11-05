@@ -1,4 +1,4 @@
-<app-tk-window [window]="win" (activeWindow)="activeWindow($event)"  *ngFor="let win of getWindows()" (removeWindow)="removeWindow(win)" (minWindow)="minWindow(win)" >
+<app-tk-window  [window]="win" (activeWindow)="activeWindow($event)"  *ngFor="let win of getWindows()" (removeWindow)="removeWindow(win)" (minWindow)="minWindow(win)" >
 </app-tk-window>
 
 <div  class="tk-window-min-container" >

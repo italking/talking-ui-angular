@@ -30,6 +30,11 @@ import {TkHighlightDirective} from './highlight/tk-highlight.directive';
 import {TkRightMenuDirective} from './right-menu/tk-right-menu.directive';
 import {TkRightMenuService} from './right-menu/tk-right-menu.service';
 import {TkBaseTableDirective} from './base-table/tk-base-table.directive';
+import {TkSortHeaderComponent} from './base-table/tk-sort-header/tk-sort-header.component';
+import {TkBaseTabDirective} from './base-tab/tk-base-tab.directive';
+import {TkBaseTabHeaderDirective} from './base-tab/tk-base-tab-header.directive';
+import {TkBaseTabContentDirective} from './base-tab/tk-base-tab-content.directive';
+import {TkResizeableComponent} from './resizeable/tk-resizeable/tk-resizeable.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +57,11 @@ import {TkBaseTableDirective} from './base-table/tk-base-table.directive';
     TkHighlightDirective,
     TkRightMenuDirective,
     TkBaseTableDirective,
+    TkSortHeaderComponent,
+    TkBaseTabDirective,
+    TkBaseTabHeaderDirective,
+    TkBaseTabContentDirective,
+    TkResizeableComponent
   ],
   entryComponents: [
     TkAlertifyComponent,
@@ -94,6 +104,11 @@ import {TkBaseTableDirective} from './base-table/tk-base-table.directive';
     TkHighlightDirective,
     TkRightMenuDirective,
     TkBaseTableDirective,
+    TkSortHeaderComponent,
+    TkBaseTabDirective,
+    TkBaseTabHeaderDirective,
+    TkBaseTabContentDirective,
+    TkResizeableComponent
   ]
 })
 export class TkuiModule { }

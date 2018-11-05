@@ -3,6 +3,15 @@ pre.sm {
   background:transparent !important;
 }
 
+
+ul.nav{
+  margin-left: 0px !important;
+  margin: 0px!important;
+}
+li.nav-item{
+  list-style: none !important;
+}
+
 /*
 
 Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmail.com>

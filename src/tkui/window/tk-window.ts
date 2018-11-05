@@ -25,6 +25,12 @@ export class TkWindow {
   public cancelButtonName = '取消';
   public popinfo;
   public onSave: Function;
+  /**
+   * 自动调用onSave 回调函数
+   * false 可以在window中手动调用
+   * @type {boolean}
+   */
+  public autoCallOnsave = true;
   public onCancel: Function;
   public autoCenter = true;
   public onClick;
@@ -146,7 +152,10 @@ export class TkWindow {
     this.onDocumentClick = onDocumentClick;
     return this;
   }
-
+  public setAutoCallOnsave(autoCallOnsave) {
+    this.autoCallOnsave = autoCallOnsave;
+    return this;
+  }
   /**
    * 调用组件的方法
    */

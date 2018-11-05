@@ -20,7 +20,6 @@ import { TkSliderInfoComponent } from './info/tk-slider-info/tk-slider-info.comp
 import { TkDownloadInfoComponent } from './info/tk-download-info/tk-download-info.component';
 import { TkWindow4Component } from './info/tk-window-info/tk-window4/tk-window4.component';
 import { TkChartInfoComponent } from './info/tk-chart-info/tk-chart-info.component';
-import { TestComponent } from './info/test/test.component';
 import { AboutComponent } from './about/about.component';
 import { ProductComponent } from './product/product.component';
 import { ProductWindowComponent } from './product/window/product-window/product-window.component';
@@ -32,10 +31,9 @@ import { HomeComponent } from './home/home.component';
 import { DemolWindowComponent } from './product/window/product-window/demol-window/demol-window.component';
 import { ProductAnchorComponent } from './product/anchor/product-anchor/product-anchor.component';
 import { ProductHighlightComponent } from './product/highlight/product-highlight/product-highlight.component';
-import { TkHighlightComponent } from '../tkui/highlight/tk-highlight/tk-highlight.component';
 import { SimpleRightMenuComponent } from './product/right-menu/product-right-menu/simple-right-menu/simple-right-menu.component';
 import { ProductBaseTableComponent } from './product/base-table/product-base-table.component';
-import { TkSortHeaderComponent } from '../tkui/base-table/tk-sort-header/tk-sort-header.component';
+import { ProductBaseTabComponent } from './product/base-tab/product-base-tab/product-base-tab.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +50,6 @@ import { TkSortHeaderComponent } from '../tkui/base-table/tk-sort-header/tk-sort
     TkDownloadInfoComponent,
     TkWindow4Component,
     TkChartInfoComponent,
-    TestComponent,
     AboutComponent,
     ProductComponent,
     ProductWindowComponent,
@@ -64,10 +61,9 @@ import { TkSortHeaderComponent } from '../tkui/base-table/tk-sort-header/tk-sort
     DemolWindowComponent,
     ProductAnchorComponent,
     ProductHighlightComponent,
-    TkHighlightComponent,
     SimpleRightMenuComponent,
     ProductBaseTableComponent,
-    TkSortHeaderComponent,
+    ProductBaseTabComponent,
   ],
   entryComponents: [
       DemolWindowComponent,

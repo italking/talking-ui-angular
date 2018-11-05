@@ -18,6 +18,7 @@ import {HomeComponent} from './home/home.component';
 import {ProductAnchorComponent} from './product/anchor/product-anchor/product-anchor.component';
 import {ProductHighlightComponent} from './product/highlight/product-highlight/product-highlight.component';
 import {ProductBaseTableComponent} from './product/base-table/product-base-table.component';
+import {ProductBaseTabComponent} from './product/base-tab/product-base-tab/product-base-tab.component';
 export const routes: Routes = [
   {
     path: '',
@@ -65,6 +66,10 @@ export const routes: Routes = [
       {
         path: 'basetable',
         component: ProductBaseTableComponent
+      },
+      {
+        path: 'basetab',
+        component: ProductBaseTabComponent
       }
     ]
   },

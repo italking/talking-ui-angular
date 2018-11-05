@@ -216,10 +216,10 @@ export class TkWindowComponent implements OnInit, OnDestroy , AfterViewInit {
 
     let re = null;
     if (this.window.save && this.componentRef.instance && this.componentRef.instance['windowSave']) {
-        re =  this.componentRef.instance['windowSave']();
+        re =  this.componentRef.instance['windowSave'](this.window.popinfo, this.window.onSave);
     }
 
-    if (this.window.onSave) {
+    if (this.window.onSave && this.window.autoCallOnsave) {
         re =  this.window.onSave(this.window.popinfo);
     }
 
@@ -275,5 +275,13 @@ export class TkWindowComponent implements OnInit, OnDestroy , AfterViewInit {
     Object.keys(popinfo).forEach(name => {
         popinfo[name] = comp[name];
     });
+  }
+
+  public onResizeEnd(event) {
+   // this.window = Object.assign({} , this.window);
+    this.window.height = event.height;
+    this.window.width = event.width;
+    this.window.left = event.left;
+    this.window.top = event.top;
   }
 }

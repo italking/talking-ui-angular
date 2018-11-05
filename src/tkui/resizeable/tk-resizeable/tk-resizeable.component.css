@@ -1,0 +1,18 @@
+.tk-resizable-disabled-select {
+  user-select: none  !important;
+  -webkit-user-select:none!important;
+  -moz-user-select:none !important;
+  -ms-user-select:none !important;
+}
+.tk-resizable { position: relative;}
+.tk-resizable-handle { position: absolute;font-size: 0.1px; display: block; }
+.tk-resizable-disabled .tk-resizable-handle, .tk-resizable-autohide .tk-resizable-handle { display: none; }
+.tk-resizable-n { cursor: n-resize; height: 7px; width: 100%; top: -5px; left: 0; }
+.tk-resizable-s { cursor: s-resize; height: 7px; width: 100%; bottom: -5px; left: 0; }
+.tk-resizable-e { cursor: e-resize; width: 7px; right: -5px; top: 0; height: 100%; }
+.tk-resizable-w { cursor: w-resize; width: 7px; left: -5px; top: 0; height: 100%; }
+.tk-resizable-se { cursor: se-resize; width: 12px; height: 12px; right: 1px; bottom: 1px; }
+.tk-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: -5px; bottom: -5px; }
+.tk-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: -5px; top: -5px; }
+.tk-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}
+.tk-window-resizable-helper{ border:2px #000000 dashed;}
