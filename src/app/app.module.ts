@@ -33,6 +33,7 @@ import { SimpleRightMenuComponent } from './product/right-menu/product-right-men
 import { ProductBaseTableComponent } from './product/base-table/product-base-table.component';
 import { ProductBaseTabComponent } from './product/base-tab/product-base-tab/product-base-tab.component';
 import { ProductChartComponent } from './product/chart/product-chart/product-chart.component';
+import { ProductSliderComponent } from './product/slider/product-slider/product-slider.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { ProductChartComponent } from './product/chart/product-chart/product-cha
     ProductBaseTableComponent,
     ProductBaseTabComponent,
     ProductChartComponent,
+    ProductSliderComponent,
   ],
   entryComponents: [
       DemolWindowComponent,
