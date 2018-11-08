@@ -13,6 +13,7 @@ import {ProductBaseTableComponent} from './product/base-table/product-base-table
 import {ProductBaseTabComponent} from './product/base-tab/product-base-tab/product-base-tab.component';
 import {ProductChartComponent} from './product/chart/product-chart/product-chart.component';
 import {ProductSliderComponent} from './product/slider/product-slider/product-slider.component';
+import {ProductNotifyComponent} from './product/notify/product-notify/product-notify.component';
 export const routes: Routes = [
   {
     path: '',
@@ -72,6 +73,10 @@ export const routes: Routes = [
       {
         path: 'slider',
         component: ProductSliderComponent
+      },
+      {
+        path: 'notify',
+        component: ProductNotifyComponent
       }
     ]
   },

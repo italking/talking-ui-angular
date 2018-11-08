@@ -34,6 +34,7 @@ import { ProductBaseTableComponent } from './product/base-table/product-base-tab
 import { ProductBaseTabComponent } from './product/base-tab/product-base-tab/product-base-tab.component';
 import { ProductChartComponent } from './product/chart/product-chart/product-chart.component';
 import { ProductSliderComponent } from './product/slider/product-slider/product-slider.component';
+import { ProductNotifyComponent } from './product/notify/product-notify/product-notify.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { ProductSliderComponent } from './product/slider/product-slider/product-
     ProductBaseTabComponent,
     ProductChartComponent,
     ProductSliderComponent,
+    ProductNotifyComponent,
   ],
   entryComponents: [
       DemolWindowComponent,
