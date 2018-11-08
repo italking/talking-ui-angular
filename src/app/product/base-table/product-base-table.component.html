@@ -23,15 +23,15 @@
             <a class="article-anchor" href="#简单示例" aria-hidden="true"></a>
           </h3>
           <div>
-            <span style="float: right">
+            <span class="float-right form-group">
               搜索：<input type="text" #k (keyup)="key = k.value" style="border: 1px solid #eee;" >
             </span>
-            <table width="100%" appTkBaseTable [collection]="datas" [searchPaths]="['name','city']" [keyword]="key">
+            <table width="100%" tkBtable [collection]="datas" [searchPaths]="['name','city']" [keyword]="key">
               <thead>
               <tr>
-                <th appTkSortHeader [path]="'id'">序号</th>
-                <th appTkSortHeader [path]="'name'" [default]="true" [desc]="true">姓名</th>
-                <th appTkSortHeader [path]="'city'"  >城市</th>
+                <th>序号</th>
+                <th tkBtableHeader [path]="'name'" [default]="true" [desc]="false">姓名</th>
+                <th tkBtableHeader [path]="'city'"  >城市</th>
               </tr>
               </thead>
               <tbody>

@@ -3,7 +3,7 @@ import {TkSortHeaderComponent} from './tk-sort-header/tk-sort-header.component';
 import {isFunction} from 'util';
 
 @Directive({
-  selector: '[appTkBaseTable]'
+  selector: 'table[tkBtable]'
 })
 export class TkBaseTableDirective implements AfterViewInit {
   public afterViewInit = false;

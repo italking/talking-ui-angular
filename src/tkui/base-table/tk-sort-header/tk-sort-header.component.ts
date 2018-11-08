@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, HostListener, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: '[appTkSortHeader]',
+  selector: '[tkBtableHeader]',
   templateUrl: './tk-sort-header.component.html',
   styleUrls: ['./tk-sort-header.component.css']
 })
