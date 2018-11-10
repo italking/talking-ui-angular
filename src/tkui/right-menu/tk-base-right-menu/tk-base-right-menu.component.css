@@ -1,0 +1,21 @@
+ul.right-menu{
+  min-width: 200px;
+  min-height: 100px;
+  list-style-type:none;
+  border: solid 1px #CCC;
+  background: #EEE;
+  padding: 0px;
+  margin: 0px;
+}
+ul.right-menu li{
+  color: #333;
+  padding-left: 4px;
+  padding-right: 4px;
+  line-height: 20px;
+  height: 20px;
+  cursor: default;
+}
+ul.right-menu li:hover{
+  color: #FFF;
+  background-color: #3399FF;
+}

@@ -1,0 +1,3 @@
+<ul *ngIf=" info!=null " class="right-menu">
+  <li *ngFor="let i of info" (click)="onClick(i.type)">{{i.name}}</li>
+</ul>

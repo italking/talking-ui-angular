@@ -5,14 +5,14 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[tkBaseTabContent]'
+  selector: '[tkBtabContent]'
 })
 export class TkBaseTabContentDirective implements AfterViewInit {
   public  active = false;
   private loaded = false;
   public contentName;
   private dom;
-  @Input('tkBaseTabContent')
+  @Input('tkBtabContent')
   public set name(name: string) {
     this.contentName = name;
   }

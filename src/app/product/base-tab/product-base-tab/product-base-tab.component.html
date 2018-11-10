@@ -22,26 +22,26 @@
             简单示例
             <a class="article-anchor" href="#简单示例" aria-hidden="true"></a>
           </h3>
-          <div tkBaseTab [activeClass]="'active'">
+          <div tkBtab [activeClass]="'active'">
               <ul  class="nav nav-tabs">
                 <li class="nav-item">
-                  <a class="nav-link active" [tkBaseTabHeader]="'TAB1'">TAB1</a>
+                  <a class="nav-link active" [tkBtabHeader]="'TAB1'">TAB1</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" [tkBaseTabHeader]="'TAB2'">TAB2</a>
+                  <a class="nav-link" [tkBtabHeader]="'TAB2'">TAB2</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" [tkBaseTabHeader]="'TAB3'">TAB3</a>
+                  <a class="nav-link" [tkBtabHeader]="'TAB3'">TAB3</a>
                 </li>
               </ul>
               <div class="tab-content">
-                <div class="tab-pane" *tkBaseTabContent="'TAB1'">
+                <div class="tab-pane" *tkBtabContent="'TAB1'">
                   TAB1
                 </div>
-                <div class="tab-pane" *tkBaseTabContent="'TAB2'">
+                <div class="tab-pane" *tkBtabContent="'TAB2'">
                   TAB2
                 </div>
-                <div class="tab-pane" *tkBaseTabContent="'TAB3'">
+                <div class="tab-pane" *tkBtabContent="'TAB3'">
                   TAB3
                 </div>
               </div>

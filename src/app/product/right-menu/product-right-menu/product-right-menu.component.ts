@@ -9,12 +9,27 @@ import {SimpleRightMenuComponent} from './simple-right-menu/simple-right-menu.co
 export class ProductRightMenuComponent implements OnInit {
 
   public SimpleRightMenuComponent = SimpleRightMenuComponent;
+
+  public info = [
+      {name: '查看' , type: 'view'},
+      {name: '删除' , type: 'delete'},
+      {name: '修改' , type: 'edit'},
+    ];
+
   public datas = [
     {id: 2 , name: '小A' , city : '北京' },
     {id: 3 , name: '小B' , city : '上海' },
     {id: 4 , name: '小C' , city : '广州' },
     {id: 5 , name: '小D' , city : '深圳' }
   ];
+
+  public datas1 = [
+    {id: 2 , name: '小A' , city : '北京' },
+    {id: 3 , name: '小B' , city : '上海' },
+    {id: 4 , name: '小C' , city : '广州' },
+    {id: 5 , name: '小D' , city : '深圳' }
+  ];
+
   constructor() { }
 
   ngOnInit() {
@@ -25,6 +40,16 @@ export class ProductRightMenuComponent implements OnInit {
       alert('查看');
     } else if (type === 'delete') {
        this.datas.splice(index , 1);
+    } else if (type === 'edit') {
+      alert('修改');
+    }
+  }
+
+  public onMenuClick1(type , index) {
+    if (type === 'view') {
+      alert('查看');
+    } else if (type === 'delete') {
+      this.datas1.splice(index , 1);
     } else if (type === 'edit') {
       alert('修改');
     }

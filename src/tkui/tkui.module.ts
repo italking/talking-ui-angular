@@ -35,6 +35,7 @@ import {TkBaseTabDirective} from './base-tab/tk-base-tab.directive';
 import {TkBaseTabHeaderDirective} from './base-tab/tk-base-tab-header.directive';
 import {TkBaseTabContentDirective} from './base-tab/tk-base-tab-content.directive';
 import {TkResizeableComponent} from './resizeable/tk-resizeable/tk-resizeable.component';
+import {TkBaseRightMenuComponent} from './right-menu/tk-base-right-menu/tk-base-right-menu.component';
 
 @NgModule({
   declarations: [
@@ -61,11 +62,13 @@ import {TkResizeableComponent} from './resizeable/tk-resizeable/tk-resizeable.co
     TkBaseTabDirective,
     TkBaseTabHeaderDirective,
     TkBaseTabContentDirective,
-    TkResizeableComponent
+    TkResizeableComponent,
+    TkBaseRightMenuComponent
   ],
   entryComponents: [
     TkAlertifyComponent,
-    TkConfirmComponent
+    TkConfirmComponent,
+    TkBaseRightMenuComponent
   ],
   imports: [
     BrowserModule,

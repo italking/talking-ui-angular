@@ -3,15 +3,15 @@ import {TkBaseTabHeaderDirective} from './tk-base-tab-header.directive';
 import {TkBaseTabContentDirective} from './tk-base-tab-content.directive';
 
 @Directive({
-  selector: '[tkBaseTab]'
+  selector: '[tkBtab]'
 })
 export class TkBaseTabDirective implements AfterViewInit {
 
   @Output('show')
   public show: EventEmitter<string> = new EventEmitter<string>();
   public current: TkBaseTabHeaderDirective;
-  @Input('tkBaseTab')
-  public set tkBaseTab(v) {
+  @Input('tkBtab')
+  public set tkBtab(v) {
     this.activeClass = v;
   }
   @Input('activeClass')

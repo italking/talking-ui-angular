@@ -8,6 +8,12 @@ import {isFunction} from 'util';
 export class TkBaseTableDirective implements AfterViewInit {
   public afterViewInit = false;
   public collection;
+  /**
+   * 被过滤掉添加的属性
+   * @type {string}
+   */
+  @Input('mark')
+  public mark = 'filtered';
   @Input('collection')
   public set setCollection(collection) {
     this.collection = collection;
@@ -18,6 +24,11 @@ export class TkBaseTableDirective implements AfterViewInit {
       this.active();
       this.sort();
     }
+  }
+
+  @Input('tkBtable')
+  public set tkBtable(c) {
+    this.collection = c ;
   }
 
   public desc = false;
@@ -73,9 +84,9 @@ export class TkBaseTableDirective implements AfterViewInit {
         cs.forEach(c => {
           this.searchPaths.every( (t): boolean => {
             const v = this.getValue(c , t);
-            c.filterd = true;
+            c[this.mark] = true;
             if ((v + '').indexOf(key) >= 0) {
-              c.filterd = false;
+              c[this.mark] = false;
               return false;
             }
             return true;
@@ -83,7 +94,7 @@ export class TkBaseTableDirective implements AfterViewInit {
         });
       } else {
         cs.forEach(c => {
-          c.filterd = false;
+          c[this.mark] = false;
         });
       }
 

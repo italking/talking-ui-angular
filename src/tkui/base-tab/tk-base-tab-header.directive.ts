@@ -1,14 +1,14 @@
 import {Directive, ElementRef, HostListener, Input, Renderer2} from '@angular/core';
 
 @Directive({
-  selector: '[tkBaseTabHeader]'
+  selector: '[tkBtabHeader]'
 })
 export class TkBaseTabHeaderDirective {
   @Input('default')
   public default = false;
   public headerName
-  @Input('tkBaseTabHeader')
-  public set name(name) {
+  @Input('tkBtabHeader')
+  public set tkBtabHeader(name) {
     this.headerName = name;
   }
   @HostListener('click') onClick() {
