@@ -36,7 +36,7 @@
               </tr>
               </thead>
               <tbody>
-              <tr appTkRightMenu (menuClick)="onMenuClick($event ,i)"  [component]="SimpleRightMenuComponent" *ngFor="let d of datas;let i = index">
+              <tr tkRightMenu (menuClick)="onMenuClick($event ,i)"  [component]="SimpleRightMenuComponent" *ngFor="let d of datas;let i = index">
                 <td>{{d.id}}</td>
                 <td>{{d.name}}</td>
                 <td>{{d.city}}</td>
@@ -91,7 +91,7 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr appTkRightMenu (menuClick)="onMenuClick1($event ,i)"  [info]="info" *ngFor="let d of datas1;let i = index">
+                  <tr tkRightMenu (menuClick)="onMenuClick1($event ,i)"  [info]="info" *ngFor="let d of datas1;let i = index">
                     <td>{{d.id}}</td>
                     <td>{{d.name}}</td>
                     <td>{{d.city}}</td>
@@ -136,6 +136,75 @@ export class ProductRightMenuComponent implements OnInit {
                  </textarea>
               </code>
           </pre>
+          <h3 id="使用getInfo属性" class="article-heading">
+            <a href="#使用getInfo属性" class="headerlink" title="使用getInfo属性"></a>
+            使用getInfo属性
+            <a class="article-anchor" href="#使用getInfo属性" aria-hidden="true"></a>
+          </h3>
+          <div>
+            <p>有时候有右键的内容在不同的位置会显示不同的内容，可以Right Menu getInfo 属性，传入提供info的函数，已达到动态生成 Right Menu 内容的目的。 当然使用info属性也可以达到同样的目的，在不同的邮件位置指定不同的
+              info属性就可以了，使用getInfo属性的优势是，getInfo 传入的函数在每次执行邮件操作的时候都会执行，便于内容的更新，在Table 行上执行右键操作</p>
+            <table width="100%">
+              <thead>
+              <tr>
+                <th>1序号</th>
+                <th>姓名</th>
+                <th>城市</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr tkRightMenu (menuClick)="onMenuClick1($event ,i)"  [getInfo]="getInfo.bind(this,d.id)" *ngFor="let d of datas1;let i = index">
+                <td>{{d.id}}</td>
+                <td>{{d.name}}</td>
+                <td>{{d.city}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <pre class="sm">
+              <code class="javascript" appTkHighlight>
+                 <textarea>
+ export class ProductRightMenuComponent implements OnInit {
+
+
+  public datas2 = [
+    {id: 1 , name: '小A' , city : '北京' },
+    {id: 2 , name: '小B' , city : '上海' },
+    {id: 3 , name: '小C' , city : '广州' },
+    {id: 4 , name: '小D' , city : '深圳' }
+  ];
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  public getInfo(id) {
+    if (id > 2) {
+      return [
+        {name: '查看' , type: 'view'}
+      ];
+    } else {
+      return [
+        {name: '删除' , type: 'delete'},
+        {name: '修改' , type: 'edit'},
+      ];
+    }
+  }
+
+  public onMenuClick2(type , index) {
+    if (type === 'view') {
+      alert('查看');
+    } else if (type === 'delete') {
+      this.datas1.splice(index , 1);
+    } else if (type === 'edit') {
+      alert('修改');
+    }
+  }
+}
+                 </textarea>
+              </code>
+          </pre>
         </div>
       </div>
     </div>
@@ -151,6 +220,7 @@ export class ProductRightMenuComponent implements OnInit {
               <ol class="toc-child">
                 <li class="toc-item toc-level-3"><a class="toc-link" href="#自定义右键Component" appTkAnchor><span class="toc-text">自定义右键Component</span></a></li>
                 <li class="toc-item toc-level-3"><a class="toc-link" href="#使用info属性" appTkAnchor><span class="toc-text">使用info属性</span></a></li>
+                <li class="toc-item toc-level-3"><a class="toc-link" href="#使用getInfo属性" appTkAnchor><span class="toc-text">使用getInfo属性</span></a></li>
               </ol>
             </li>
         </ol>

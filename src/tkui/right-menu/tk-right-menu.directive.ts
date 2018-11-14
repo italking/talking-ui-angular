@@ -3,7 +3,7 @@ import {TkMenu, TkRightMenuService} from './tk-right-menu.service';
 import {TkBaseRightMenuComponent} from './tk-base-right-menu/tk-base-right-menu.component';
 
 @Directive({
-  selector: '[appTkRightMenu]'
+  selector: '[tkRightMenu]'
 })
 export class TkRightMenuDirective {
 
@@ -17,9 +17,13 @@ export class TkRightMenuDirective {
    */
   @Input('info')
   public info = null;
+  /**
+   * 获取info的函数
+   */
+  @Input('getInfo')
+  public getInfo = null;
   @Output('menuClick')
   public menuClick = new EventEmitter<string>();
-
   constructor(
     private rightMenuService: TkRightMenuService
   ) { }
@@ -33,6 +37,9 @@ export class TkRightMenuDirective {
             menu.event      = event;
             if (this.info != null) {
               menu.popinfo     = {info : this.info};
+              menu.component   = TkBaseRightMenuComponent;
+            } else if (this.getInfo != null) {
+              menu.popinfo     = {info : this.getInfo.call(null)};
               menu.component   = TkBaseRightMenuComponent;
             } else {
               menu.popinfo    = this.popinfo;
