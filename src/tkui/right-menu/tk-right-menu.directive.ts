@@ -28,8 +28,7 @@ export class TkRightMenuDirective {
     private rightMenuService: TkRightMenuService
   ) { }
   @HostListener('mouseup', ['$event'])
-  public onClick(event) {
-    event.stopPropagation();
+  public onClick(event)  {
     if (event.button !== 2) {
         return false;
     }
@@ -39,7 +38,7 @@ export class TkRightMenuDirective {
               menu.popinfo     = {info : this.info};
               menu.component   = TkBaseRightMenuComponent;
             } else if (this.getInfo != null) {
-              menu.popinfo     = {info : this.getInfo.call(null)};
+              menu.popinfo     = {info : this.getInfo.call()};
               menu.component   = TkBaseRightMenuComponent;
             } else {
               menu.popinfo    = this.popinfo;
@@ -50,7 +49,6 @@ export class TkRightMenuDirective {
             }
             menu.popinfo.menuClick  = this.menuClick;
             this.rightMenuService.open(menu);
-     return false;
   }
   @HostListener('document:contextmenu', ['$event'])
   public onContextmenu(event) {

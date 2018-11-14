@@ -157,7 +157,6 @@ export class TkWindowComponent implements OnInit, OnDestroy , AfterViewInit {
     };
     // 设置关联的组件，销毁的时候必须删除掉，防止内存溢出
     this.window['_loadedComponent_'] = this.componentRef.instance;
-
   }
 
   public remove() {

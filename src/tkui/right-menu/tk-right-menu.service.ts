@@ -11,6 +11,7 @@ export class TkRightMenuService {
   public open(menu: TkMenu) {
     this.clear();
     this.menu = menu;
+    const ctime = new Date().getTime();
     const win = new TkWindow()
           .setContentComponent(menu.component)
           .setPopinfo(menu.popinfo)
@@ -21,8 +22,14 @@ export class TkRightMenuService {
           .setOnClick(() => {
             this.windowService.close(win);
           }).setOnDocumentClick(() => {
-            this.windowService.close(win);
-          })
+            const etime = new Date().getTime();
+            /**
+             * 延迟关闭，解决 click 和 mouseup 冲突问题
+             */
+            if (etime - ctime > 100) {
+                  this.windowService.close(win);
+                }
+              })
           .setAutoCenter(false)
           .setShowHeader(false);
     this.menu['win'] = win;
