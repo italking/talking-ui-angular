@@ -14,6 +14,7 @@ import {ProductBaseTabComponent} from './product/base-tab/product-base-tab/produ
 import {ProductChartComponent} from './product/chart/product-chart/product-chart.component';
 import {ProductSliderComponent} from './product/slider/product-slider/product-slider.component';
 import {ProductNotifyComponent} from './product/notify/product-notify/product-notify.component';
+import {ProductDateComponent} from './product/date/product-date/product-date.component';
 export const routes: Routes = [
   {
     path: '',
@@ -77,6 +78,10 @@ export const routes: Routes = [
       {
         path: 'notify',
         component: ProductNotifyComponent
+      },
+      {
+        path: 'date',
+        component: ProductDateComponent
       }
     ]
   },

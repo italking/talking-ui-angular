@@ -1,4 +1,4 @@
-import {Directive, EventEmitter, HostListener, Input, Output} from '@angular/core';
+import {Directive, ElementRef, EventEmitter, HostListener, Input, Output} from '@angular/core';
 import {TkMenu, TkRightMenuService} from './tk-right-menu.service';
 import {TkBaseRightMenuComponent} from './tk-base-right-menu/tk-base-right-menu.component';
 
@@ -7,6 +7,8 @@ import {TkBaseRightMenuComponent} from './tk-base-right-menu/tk-base-right-menu.
 })
 export class TkRightMenuDirective {
 
+  @Input('stopPropagation')
+  public stopPropagation = true;
   @Input('component')
   public component;
   @Input('popinfo')
@@ -25,30 +27,35 @@ export class TkRightMenuDirective {
   @Output('menuClick')
   public menuClick = new EventEmitter<string>();
   constructor(
-    private rightMenuService: TkRightMenuService
+    private rightMenuService: TkRightMenuService ,
+    private ele: ElementRef
   ) { }
   @HostListener('mouseup', ['$event'])
-  public onClick(event)  {
+  public onClick(event, self)  {
+
     if (event.button !== 2) {
-        return false;
+      return false;
+    }
+    if (this.stopPropagation) {
+      event.stopPropagation();
     }
     const  menu = new TkMenu();
-            menu.event      = event;
-            if (this.info != null) {
-              menu.popinfo     = {info : this.info};
-              menu.component   = TkBaseRightMenuComponent;
-            } else if (this.getInfo != null) {
-              menu.popinfo     = {info : this.getInfo.call()};
-              menu.component   = TkBaseRightMenuComponent;
-            } else {
-              menu.popinfo    = this.popinfo;
-              if (!menu.popinfo) {
-                menu.popinfo = {};
-              }
-              menu.component           = this.component;
-            }
-            menu.popinfo.menuClick  = this.menuClick;
-            this.rightMenuService.open(menu);
+    menu.event      = event;
+    if (this.info != null) {
+      menu.popinfo     = {info : this.info};
+      menu.component   = TkBaseRightMenuComponent;
+    } else if (this.getInfo != null) {
+      menu.popinfo     = {info : this.getInfo.call()};
+      menu.component   = TkBaseRightMenuComponent;
+    } else {
+      menu.popinfo    = this.popinfo;
+      if (!menu.popinfo) {
+        menu.popinfo = {};
+      }
+      menu.component           = this.component;
+    }
+    menu.popinfo.menuClick  = this.menuClick;
+    this.rightMenuService.open(menu);
   }
   @HostListener('document:contextmenu', ['$event'])
   public onContextmenu(event) {

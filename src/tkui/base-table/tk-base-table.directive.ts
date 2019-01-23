@@ -16,6 +16,10 @@ export class TkBaseTableDirective implements AfterViewInit {
   public mark = 'filtered';
   @Input('collection')
   public set setCollection(collection) {
+    if (!collection) {
+      this.collection = [];
+      return;
+    }
     this.collection = collection;
     /**
      * 重新设置值的时候也需要重新排序
@@ -28,7 +32,9 @@ export class TkBaseTableDirective implements AfterViewInit {
 
   @Input('tkBtable')
   public set tkBtable(c) {
-    this.collection = c ;
+    if (c) {
+      this.setCollection = c;
+    }
   }
 
   public desc = false;

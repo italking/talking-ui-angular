@@ -79,9 +79,15 @@ export class TkWindowCenterComponent implements OnInit , OnDestroy {
      // 删除window动态加载的组件的应用
     if (win['_loadedComponent_']) {
         win['_loadedComponent_'] = null;
+    } else {
+      // 没有对象是不需要删除的
+      return ;
     }
     if (this.wins.indexOf(win) >= 0) {
-         this.wins.splice(this.wins.indexOf(win), 1);
+        this.wins.splice(this.wins.indexOf(win), 1);
+      if (win.model && win._cover > 0) {
+          this.tkCoverService.hide(win._cover);
+      }
     }
     this.removeMinWindow(win);
   }

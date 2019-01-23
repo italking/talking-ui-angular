@@ -13,7 +13,9 @@ export class TkSortHeaderComponent implements OnInit  {
   public path   = null;
   @Input('tkBtableHeader')
   public set tkBtableHeader(v) {
-    this.path = v;
+    if (v) {
+      this.path = v;
+    }
   }
   @Input('desc')
   public desc   = false;

@@ -21,5 +21,11 @@ export class ProductCoverComponent implements OnInit {
       this.coverService.hide();
     } , 3000);
   }
+  public show2() {
+    this.coverService.show(true);
+    setTimeout( () => {
+      this.coverService.hide();
+    } , 3000);
+  }
 
 }

@@ -35,6 +35,8 @@ import { ProductBaseTabComponent } from './product/base-tab/product-base-tab/pro
 import { ProductChartComponent } from './product/chart/product-chart/product-chart.component';
 import { ProductSliderComponent } from './product/slider/product-slider/product-slider.component';
 import { ProductNotifyComponent } from './product/notify/product-notify/product-notify.component';
+import { TkDatePickerComponent } from '../tkui/date/tk-date-picker.component';
+import { ProductDateComponent } from './product/date/product-date/product-date.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,8 @@ import { ProductNotifyComponent } from './product/notify/product-notify/product-
     ProductChartComponent,
     ProductSliderComponent,
     ProductNotifyComponent,
+    TkDatePickerComponent,
+    ProductDateComponent,
   ],
   entryComponents: [
       DemolWindowComponent,

@@ -13,25 +13,25 @@ export class TkRightMenuService {
     this.menu = menu;
     const ctime = new Date().getTime();
     const win = new TkWindow()
-          .setContentComponent(menu.component)
-          .setPopinfo(menu.popinfo)
-          .setLeft(menu.event.clientX)
-          .setTop(menu.event.clientY)
-          .setHeight(-1)
-          .setWidth(-1)
-          .setOnClick(() => {
-            this.windowService.close(win);
-          }).setOnDocumentClick(() => {
-            const etime = new Date().getTime();
-            /**
-             * 延迟关闭，解决 click 和 mouseup 冲突问题
-             */
-            if (etime - ctime > 100) {
-                  this.windowService.close(win);
-                }
-              })
-          .setAutoCenter(false)
-          .setShowHeader(false);
+      .setContentComponent(menu.component)
+      .setPopinfo(menu.popinfo)
+      .setLeft(menu.event.clientX)
+      .setTop(menu.event.clientY)
+      .setHeight(-1)
+      .setWidth(-1)
+      .setOnClick(() => {
+        this.windowService.close(win);
+      }).setOnDocumentClick(() => {
+        const etime = new Date().getTime();
+        /**
+         * 延迟关闭，解决 click 和 mouseup 冲突问题
+         */
+        if (etime - ctime > 100) {
+          this.windowService.close(win);
+        }
+      })
+      .setAutoCenter(false)
+      .setShowHeader(false);
     this.menu['win'] = win;
     this.windowService.open(win);
   }
@@ -45,7 +45,7 @@ export class TkRightMenuService {
 }
 
 export class TkMenu {
-   public event;
-   public component;
-   public popinfo;
+  public event;
+  public component;
+  public popinfo;
 }

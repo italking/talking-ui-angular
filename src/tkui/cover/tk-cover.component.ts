@@ -12,6 +12,7 @@ export class TkCoverComponent implements OnInit {
   public visible = false;
   public width ;
   public height;
+  public loading = false;
   @HostBinding('style.z-index') hzindex = 'auto';
   constructor(
                 private tkCoverService: TkCoverService ,
@@ -21,18 +22,19 @@ export class TkCoverComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tkCoverService.showCover.subscribe((index: number) => {
-      this.show(index);
+    this.tkCoverService.showCover.subscribe((cover: any) => {
+      this.show(cover.zindex , cover.loading);
     });
     this.tkCoverService.hideCover.subscribe(() => {
       this.hidde();
     });
   }
 
-  public show(zindex: number ) {
+  public show(zindex: number , loading: boolean ) {
 
     this.zindex = zindex;
     this.visible = true;
+    this.loading = loading;
     this._reset();
   }
 
@@ -61,6 +63,16 @@ export class TkCoverComponent implements OnInit {
   public getHeight() {
     return this.height + 'px';
   }
+
+  public getLoadingLeft() {
+    return this.width / 2 - 125 + 'px';
+  }
+
+  public getLoadingTop() {
+    return this.height / 2 - 125 + 'px';
+  }
+
+
   @HostListener('window:resize', [])
   onResize() {
     this._reset();

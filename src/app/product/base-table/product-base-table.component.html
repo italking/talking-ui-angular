@@ -26,7 +26,7 @@
             <span class="float-right form-group">
               搜索：<input type="text" #k (keyup)="key = k.value" style="border: 1px solid #eee;" >
             </span>
-            <table width="100%" tkBtable [collection]="datas" [searchPaths]="['name','city']" [keyword]="key">
+            <table width="100%" class="table table-sm table-striped table-bordered table-hover table-fixed" tkBtable [collection]="datas" [searchPaths]="['name','city']" [keyword]="key">
               <thead>
               <tr>
                 <th>序号</th>
@@ -36,7 +36,7 @@
               </thead>
               <tbody>
               <ng-container  *ngFor="let d of datas;let i = index">
-                  <tr *ngIf="!d.filterd" >
+                  <tr *ngIf="!d.filtered" >
                     <td>{{d.id}}</td>
                     <td>{{d.name}}</td>
                     <td>{{d.city}}</td>

@@ -1,0 +1,118 @@
+<div class="tk-date tk-date tk-date-date1 small">
+    <div class="tk-date-editor" (click)="openPicker()">
+      <input disabled class="tk-input tk-input-block tk-date-input" type="text" placeholder="请选择或输入日期"  autocomplete="off" [value] = "currentData | date: 'yyyy-MM-dd HH:mm '">
+      <i class="iconfont icon1"></i>
+    </div>
+    <br>
+    <div class="tk-date-picker left" [class.no_timer]="!showTimer"  *ngIf="showPanel" >
+      <div class="tk-date-picker_body">
+        <div class="tk-date-picker_panel" [hidden]="panelState != 'data'">
+          <div class="tk-date-panel_header">
+            <i class="iconfont" (click)="prevYear()">《</i>
+            <i class="iconfont" (click)="prevMonth()"><</i>
+            <span class="title">
+              <span class="txt" (click)="openYearPicker()"><span class="ng-binding">{{tempDate.getFullYear()}}</span> 年 </span>
+              <span class="txt" (click)="openMonthPicker()"><span class="ng-binding">{{tempDate.getMonth() + 1 }}</span> 月</span>
+            </span>
+            <i class="iconfont" (click)="nextMonth()"> > </i>
+            <i class="iconfont" (click)="nextYear()">》</i>
+          </div>
+          <div class="tk-date-picker_content">
+            <table class="tk-data-table">
+              <tbody>
+                <tr>
+                  <th>日</th>
+                  <th>一</th>
+                  <th>二</th>
+                  <th>三</th>
+                  <th>四</th>
+                  <th>五</th>
+                  <th>六</th>
+                </tr>
+                <tr *ngFor="let w of days ">
+                  <td *ngFor="let d of w ">
+                    <div (click)="choseDate(d)" [class.pre-date]="d?.pre" [class.next-date]="d?.next" [class.date]="!d?.pre && !d?.next" >
+                      <span [class.current]="d?.current">{{d?.date}}</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="tk-date-picker_panel month_panel" [hidden]="panelState != 'month'" >
+          <div class="tk-date-panel_header">
+            <i class="iconfont"> 《</i>
+            <span class="title"><span class="txt" ng-click="openYearPicker()"><span class="ng-binding">{{tempDate.getFullYear()}}</span> 年</span></span>
+            <i class="iconfont"> 》 </i>
+          </div>
+          <div class="tk-date-picker_content">
+            <table class="tk-data-table">
+              <tbody>
+                <tr>
+                  <td><a class="cell" (click)="choseMonth(0)" >一月</a></td>
+                  <td><a class="cell" (click)="choseMonth(1)">二月</a></td>
+                  <td><a class="cell" (click)="choseMonth(2)">三月</a></td>
+                  <td><a class="cell" (click)="choseMonth(3)">四月</a></td>
+                </tr>
+                <tr>
+                  <td><a class="cell" (click)="choseMonth(4)" >五月</a></td>
+                  <td> <a class="cell" (click)="choseMonth(5)" >六月</a></td>
+                  <td> <a class="cell" (click)="choseMonth(6)" >七月</a></td>
+                  <td> <a class="cell" (click)="choseMonth(7)" >八月</a></td>
+                </tr>
+                <tr>
+                  <td><a class="cell" (click)="choseMonth(8)" >九月</a></td>
+                  <td><a class="cell" (click)="choseMonth(9)" >十月</a></td>
+                  <td><a class="cell" (click)="choseMonth(10)" >十一月</a></td>
+                  <td><a class="cell" (click)="choseMonth(11)" >十二月</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="tk-date-picker_panel year_panel" [hidden]="panelState != 'year'">
+          <div class="tk-date-panel_header">
+            <i class="iconfont" (click)="prevYears()"> 《 </i>
+            <span class="title"><span class="txt"><span>{{tempDate.getFullYear() + yindex * ysize }}</span> 年 - <span>{{tempDate.getFullYear() + (yindex + 1 ) * ysize}}</span> 年</span></span>
+            <i class="iconfont" (click)="nextYears()"> 》 </i>
+          </div>
+          <div class="tk-date-picker_content">
+            <table class="tk-data-table">
+              <tbody>
+                  <tr *ngFor="let w of yy ">
+                    <td *ngFor="let d of w ">
+                      <a class="cell" (click)="choseYear(d)" >{{d}}</a>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="tk-date-picker_aside" [hidden]="!showTimer">
+          <div class="tk-date-aside_header">
+            <div class="tk-select tk-select-block time-select">
+              <div class="tk-select-selection time-selection">
+                <span class="date-select-icon iconfont time-icon"></span>
+                <span class="date-select-placeholder">
+                  <span (click)="showHourPanel()">{{tempDate.getHours()}}</span>: <span (click)="showMinPanel()">{{tempDate.getMinutes()}}</span>
+                </span>
+              </div>
+              <div class="tk-select-menu time-menu">
+                <ul *ngIf="showHour">
+                    <li (click)="setHour(c)" *ngFor="let c of hs" class="tk-select-item time-menu-item">{{c}}</li>
+                </ul>
+                <ul  *ngIf="showMin">
+                  <li (click)="setMin(c)" *ngFor="let c of ss" class="tk-select-item time-menu-item">{{c}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tk-date-picker_footer" >
+        <button type="button" class="tk-btn tk-btn-white tk-btn-xsmall"    (click)="currentDate()" >当前时间</button>
+        <button type="button" class="tk-btn tk-btn-primary tk-btn-xsmall" (click)="saveDate()" >确定</button>
+      </div>
+    </div>
+  </div>

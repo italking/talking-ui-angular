@@ -162,6 +162,7 @@ export class TkWindowComponent implements OnInit, OnDestroy , AfterViewInit {
   public remove() {
     if (this.window.model) {
         this.tkCoverService.hide(this.window._cover);
+        this.window._cover = -1;
     }
     this.removeWindow.emit();
   }
@@ -216,6 +217,10 @@ export class TkWindowComponent implements OnInit, OnDestroy , AfterViewInit {
     let re = null;
     if (this.window.save && this.componentRef.instance && this.componentRef.instance['windowSave']) {
         re =  this.componentRef.instance['windowSave'](this.window.popinfo, this.window.onSave);
+        // 内部函数返回false 不再往下执行
+        if (false === re) {
+          return ;
+        }
     }
 
     if (this.window.onSave && this.window.autoCallOnsave) {

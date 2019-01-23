@@ -74,7 +74,7 @@ ol,
 ul {
   list-style: none;
 }
-table {
+.navy-table {
   border-collapse: separate;
   border-spacing: 0;
   vertical-align: middle;
@@ -842,18 +842,18 @@ a.article-title:hover {
   font-size: 1.3em;
   font-weight: bold;
 }
-.article-content table {
+.article-content .navy-table {
   max-width: 100%;
   border: 1px solid #e3e3e3;
 }
-.article-content table th {
+.article-content .navy-table th {
   font-weight: bold;
 }
-.article-content table th,
-.article-content table td {
+.article-content .navy-table th,
+.article-content .navy-table td {
   padding: 5px 15px;
 }
-.article-content table tr:nth-child(2n) {
+.article-content .navy-table tr:nth-child(2n) {
   background: #eee;
 }
 .article-footer {
