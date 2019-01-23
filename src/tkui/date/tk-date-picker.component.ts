@@ -165,6 +165,9 @@ export class TkDatePickerComponent implements OnInit {
   }
 
   public openPicker() {
+    if (this.showPanel) {
+       return false;
+    }
     this.showPanel = true;
     this.panelState = 'data';
     this.yindex = 0;
