@@ -310,6 +310,7 @@ export class TkDraggableDirective implements OnInit, OnChanges {
   onMouseDown(event: any) {
     // 1. skip right click;
     // 2. if handle is set, the element can only be moved by handle
+    // 如果使用了hand模式，需要检查事件的触发源是否为 hand，hand 是当前宿主元素的子元素
     if (event.button === 2 || (this.handle !== undefined && !this.checkHandleTarget(event.target, this.handle))) {
       return;
     }
